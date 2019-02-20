@@ -1,9 +1,10 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/AssetStoreTools*
+# Unity folders and files
+UNTITLED/[Ll]ibrary/
+UNTITLED/[Tt]emp/
+UNTITLED/[Oo]bj/
+UNTITLED/[Bb]uild/
+UNTITLED/[Bb]uilds/
+UNTITLED/Assets/AssetStoreTools*
 
 # Visual Studio cache directory
 .vs/
