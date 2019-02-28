@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/SamDesktop.unity
+    guid: 6b12a54c96edc3c4e84409ae02314f30
+  - enabled: 0
+    path: Assets/Scenes/LoginScreen.unity
+    guid: f3e8adfed46dc41488835e1ff105d420
   - enabled: 1
     path: Assets/Scenes/TheaDesktop.unity
     guid: 323b01e64299b924aa2b8cce88d693dc
