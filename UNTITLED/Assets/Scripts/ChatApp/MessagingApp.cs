@@ -6,12 +6,38 @@ using System.Collections.Generic;
 public class MessagingApp : MonoBehaviour
 {
 
+	// Contains all contacts to be displayed
+	public TextAsset contactData;
+
+	// Contains all messages for each contact
+	public TextAsset debugKen;
+	public TextAsset grungeNRock;
+
 	public Transform contentPanel;
 	public ObjectPool buttonObjectPool;
 	public Text messageBox;
 
-	private List<string> contacts = new List<string>();
+	private string[] contacts;
 
+	void Start()
+	{
+		// Load all contacts
+		contacts = contactData.text.Split('\n');
+
+		// Remove new line from each contact
+		for (int i = 0; i < contacts.Length; i++){
+			contacts[i] = contacts[i].Replace("\n", "");
+			contacts[i] = contacts[i].Replace("\r", "");
+			contacts[i] = contacts[i].Replace("\t", "");
+		}
+
+		// Add buttons to contact list
+		AddButtons();
+	}
+
+	// Not working after building
+	/*
+	private List<string> contacts = new List<string>();
 	void Start()
 	{
 		// Load all contacts
@@ -29,10 +55,10 @@ public class MessagingApp : MonoBehaviour
 		// Add buttons to contact list
 		AddButtons();
 	}
-
+	*/
 	private void AddButtons()
 	{
-		for (int i = 0; i < contacts.Count; i++)
+		for (int i = 0; i < contacts.Length; i++)
 		{
 			// Get a button and assign it to scroll list
 			GameObject newButton = buttonObjectPool.GetObject();
@@ -44,6 +70,31 @@ public class MessagingApp : MonoBehaviour
 		}
 	}
 
+
+	// Hardcoded
+	public void UpdateMessages(string username)
+	{
+		string textToDisplay;
+
+		if(username == "debug_ken")
+		{
+			textToDisplay = debugKen.text;
+		}
+		else if(username == "grunge_n_rock")
+		{
+			textToDisplay = grungeNRock.text;
+		}
+		else
+		{
+			textToDisplay = "";
+		}
+		
+		messageBox.text = textToDisplay;
+
+	}
+
+	// Not working after building
+	/*
 	public void UpdateMessages(string username)
 	{
 		string messageFilePath = "Assets/Resources/Data/ChatApp/" + username + ".txt";
@@ -61,4 +112,5 @@ public class MessagingApp : MonoBehaviour
 
 		inputFile.Close();
 	}
+	*/
 }
