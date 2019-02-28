@@ -3803,6 +3803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c727a3db3b43d4a41b9b0dd2eaef86b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactData: {fileID: 4900000, guid: a296e15d28d018a43aefde89cc3177a9, type: 3}
+  debugKen: {fileID: 4900000, guid: 4aa79f5c3dcf7fa47b787b251750b487, type: 3}
+  grungeNRock: {fileID: 4900000, guid: 77eecb6e458b4594b9b12f6e70736556, type: 3}
   contentPanel: {fileID: 296869292}
   buttonObjectPool: {fileID: 1322272608}
   messageBox: {fileID: 443441724}
