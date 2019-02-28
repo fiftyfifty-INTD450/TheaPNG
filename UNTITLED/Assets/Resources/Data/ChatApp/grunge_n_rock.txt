@@ -1,26 +1,26 @@
 DATE__March 8, 2003__6:02 PM
-OTHER__Hey! Show tonite @ the Charade. Just down the road from ya. [insert band name here] is playing if ya wanna go together :)
+INBOUND__Hey! Show tonite @ the Charade. Just down the road from ya. [insert band name here] is playing if ya wanna go together :)
 DATE__March 9, 2003__11:00 PM
-THEA__Im sorry, had plans last night
+OUTBOUND__Im sorry, had plans last night
 DATE__March 9, 2003__11:01 PM
-OTHER__All good. Wouldve been better with u there
-THEA__:)
-THEA__how were they?
-OTHER__amazing. Hope they come play again some time soon
-THEA__Hopefully I can make it
-OTHER__U better!
+INBOUND__All good. Wouldve been better with u there
+OUTBOUND__:)
+OUTBOUND__how were they?
+INBOUND__amazing. Hope they come play again some time soon
+OUTBOUND__Hopefully I can make it
+INBOUND__U better!
 DATE__March 31, 2003__1:15 AM
-THEA__Did u get home alright? What a wild night
-OTHER__yup. Nice to see everyone again. It’s been a while
-THEA__def missed everyones pretty faces
-OTHER__yours is the prettiest
-THEA__haha, ur drunk Ta
-OTHER__so are you!!
-THEA__yes, and?
-OTHER__whatever, loser. Good night :^P
-THEA__night nerd!
+OUTBOUND__Did u get home alright? What a wild night
+INBOUND__yup. Nice to see everyone again. It’s been a while
+OUTBOUND__def missed everyones pretty faces
+INBOUND__yours is the prettiest
+OUTBOUND__haha, ur drunk Ta
+INBOUND__so are you!!
+OUTBOUND__yes, and?
+INBOUND__whatever, loser. Good night :^P
+OUTBOUND__night nerd!
 DATE__April 5th, 2003__3:07 PM
 DELETED
-THEA__that’s… nice
-OTHER__just reminded me of the old days!
-THEA__[deleted message]
+OUTBOUND__that’s… nice
+INBOUND__just reminded me of the old days!
+OUTBOUND__[deleted message]
