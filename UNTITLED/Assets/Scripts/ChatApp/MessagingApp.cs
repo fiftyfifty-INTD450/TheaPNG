@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.IO;
 using System.Collections.Generic;
 
@@ -13,9 +14,14 @@ public class MessagingApp : MonoBehaviour
 	public TextAsset debugKen;
 	public TextAsset grungeNRock;
 
-	public Transform contentPanel;
+	public Transform contactsPanel;
+	public Transform messagePanel;
 	public ObjectPool buttonObjectPool;
-	public Text messageBox;
+
+	public GameObject InboundPrefab;
+	public GameObject OutboutPrefab;
+	public GameObject DatePrefab;
+	public GameObject DeletedPrefab;
 
 	private string[] contacts;
 
@@ -26,16 +32,14 @@ public class MessagingApp : MonoBehaviour
 
 		// Remove new line from each contact
 		for (int i = 0; i < contacts.Length; i++){
-			contacts[i] = contacts[i].Replace("\n", "");
-			contacts[i] = contacts[i].Replace("\r", "");
-			contacts[i] = contacts[i].Replace("\t", "");
+			contacts[i] = RemoveNewLineChar(contacts[i]);
 		}
 
 		// Add buttons to contact list
 		AddButtons();
 	}
 
-	// Not working after building
+	// Load in contacts (Not working in build)
 	/*
 	private List<string> contacts = new List<string>();
 	void Start()
@@ -55,14 +59,26 @@ public class MessagingApp : MonoBehaviour
 		// Add buttons to contact list
 		AddButtons();
 	}
-	*/
+	*/
+
+	private string RemoveNewLineChar(string input)
+	{
+		string retString = input;
+
+		retString = retString.Replace("\n", "");
+		retString = retString.Replace("\r", "");
+		retString = retString.Replace("\t", "");
+
+		return retString;
+	}
+
 	private void AddButtons()
 	{
 		for (int i = 0; i < contacts.Length; i++)
 		{
 			// Get a button and assign it to scroll list
 			GameObject newButton = buttonObjectPool.GetObject();
-			newButton.transform.SetParent(contentPanel);
+			newButton.transform.SetParent(contactsPanel);
 
 			// Update button with user information
 			ContactButton contactButton = newButton.GetComponent<ContactButton>();
@@ -70,11 +86,10 @@ public class MessagingApp : MonoBehaviour
 		}
 	}
 
-
-	// Hardcoded
 	public void UpdateMessages(string username)
 	{
-		string textToDisplay;
+		// Read from TextAsset based on contact pressed
+		string textToDisplay = "";
 
 		if(username == "debug_ken")
 		{
@@ -84,17 +99,60 @@ public class MessagingApp : MonoBehaviour
 		{
 			textToDisplay = grungeNRock.text;
 		}
-		else
-		{
-			textToDisplay = "";
-		}
-		
-		messageBox.text = textToDisplay;
 
+		// Split file into lines
+		string[] lines = textToDisplay.Split('\n');
+
+		// Pharse each line
+		foreach(string line in lines)
+		{
+			// Split each line at "__"
+			string[] content = line.Split(new string[] { "__" }, StringSplitOptions.None);
+
+			// Remove new line characters
+			for(int i = 0; i < content.Length; i++)
+			{
+				content[i] = RemoveNewLineChar(content[i]);
+			}
+
+			// Remove old bubbles
+			foreach (Transform child in messagePanel.transform)
+			{
+				GameObject.Destroy(child.gameObject);
+			}
+
+			// Check which bubble to create
+			if (content[0] == "DELETED")
+			{
+				// Create Deleted Bubble
+				GameObject newBubble = GameObject.Instantiate(DeletedPrefab);
+				//newBubble.transform.SetParent(messagePanel);
+			}
+			else if (content[0] == "DATE")
+			{
+				// Create Date Seperator with content[1] as Date and content[2] as Time 
+			}
+			else if (content[0] == "INBOUND")
+			{
+				// Create Inbound Bubble with content[1] as Text
+			}
+			else if (content[0] == "OUTBOUND")
+			{
+				// Create Outbound Bubble with content[1] as Text
+			}
+			else
+			{
+				// This should not happen
+				// Something wrong with the message files
+				print("Error in data formatting.");
+			}
+		}
 	}
 
-	// Not working after building
+	// Display messages (Not working in build)
 	/*
+	public Text messageBox;
+
 	public void UpdateMessages(string username)
 	{
 		string messageFilePath = "Assets/Resources/Data/ChatApp/" + username + ".txt";
