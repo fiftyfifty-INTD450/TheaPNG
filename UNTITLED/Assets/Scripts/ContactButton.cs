@@ -9,15 +9,24 @@ public class ContactButton : MonoBehaviour
 	//public Text nicknameLabel;
 	//public Image userProfileImage;
 
-	void Start()
-    {
-        
-    }
+	private MessagingApp messagingApp;
 
-	public void Setup(string username)
+	void Start()
+	{
+		button.onClick.AddListener(HandleClick);
+	}
+
+	public void Setup(string username, MessagingApp currentMessagingApp)
 	{
 		usernameLabel.text = username;
 		//nicknameLabel.text = user.nickname;
 		//userProfileImage.sprite = user.profilePicture;
+
+		messagingApp = currentMessagingApp;
+	}
+
+	public void HandleClick()
+	{
+		messagingApp.UpdateMessages(usernameLabel.text);
 	}
 }
