@@ -19,9 +19,10 @@ public class MessagingApp : MonoBehaviour
 	public ObjectPool buttonObjectPool;
 
 	public GameObject InboundPrefab;
-	public GameObject OutboutPrefab;
+	public GameObject OutboundPrefab;
 	public GameObject DatePrefab;
-	public GameObject DeletedPrefab;
+	public GameObject InboundDeletedPrefab;
+	public GameObject OutboundDeletedPrefab;
 
 	private string[] contacts;
 
@@ -122,10 +123,16 @@ public class MessagingApp : MonoBehaviour
 			}
 
 			// Check which bubble to create
-			if (content[0] == "DELETED")
+			if (content[0] == "INBOUND_DELETED")
 			{
 				// Create Deleted Bubble
-				GameObject newBubble = Instantiate(DeletedPrefab);
+				GameObject newBubble = Instantiate(InboundDeletedPrefab);
+				newBubble.transform.SetParent(messagePanel);
+			}
+			else if (content[0] == "OUTBOUND_DELETED")
+			{
+				// Create Deleted Bubble
+				GameObject newBubble = Instantiate(OutboundDeletedPrefab);
 				newBubble.transform.SetParent(messagePanel);
 			}
 			else if (content[0] == "DATE")
@@ -152,7 +159,7 @@ public class MessagingApp : MonoBehaviour
 			else if (content[0] == "OUTBOUND")
 			{
 				// Create Outbound Bubble with content[1] as Text
-				GameObject newBubble = Instantiate(OutboutPrefab);
+				GameObject newBubble = Instantiate(OutboundPrefab);
 				newBubble.transform.SetParent(messagePanel);
 
 				Text dateLabel = newBubble.GetComponentInChildren<Text>();
@@ -163,6 +170,7 @@ public class MessagingApp : MonoBehaviour
 				// This should not happen
 				// Something wrong with the message files
 				print("Error in data formatting.");
+				print(line + " @ " + content[0]);
 			}
 		}
 	}

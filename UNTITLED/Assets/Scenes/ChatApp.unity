@@ -659,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: 10, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &270364244
@@ -3127,11 +3127,13 @@ MonoBehaviour:
   buttonObjectPool: {fileID: 1322272608}
   InboundPrefab: {fileID: 6591115662739690072, guid: 03da5a925efd3ca408c95f8a3afea52a,
     type: 3}
-  OutboutPrefab: {fileID: 1923514900824954335, guid: 5d715dc0af27ee4438dd404cc3500d54,
+  OutboundPrefab: {fileID: 1923514900824954335, guid: 5d715dc0af27ee4438dd404cc3500d54,
     type: 3}
   DatePrefab: {fileID: 1913233572218786236, guid: 9413ab0e85e274e4c9c0c53b65eeefe5,
     type: 3}
-  DeletedPrefab: {fileID: 4832757622931161708, guid: 17585b4640009ae4dbd5c2f693aadddd,
+  InboundDeletedPrefab: {fileID: 2555202020561093034, guid: 463ea62ea33ccb841915c45dc57e6699,
+    type: 3}
+  OutboundDeletedPrefab: {fileID: 4832757622931161708, guid: 17585b4640009ae4dbd5c2f693aadddd,
     type: 3}
 --- !u!1 &1885587045
 GameObject:

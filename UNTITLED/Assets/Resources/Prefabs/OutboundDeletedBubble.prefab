@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4832757621891223565}
   - component: {fileID: 4832757621891223666}
   m_Layer: 5
-  m_Name: DeletedBubbleText
+  m_Name: OutboundDeletedBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4832757622739390937}
   - component: {fileID: 4832757622739390938}
   m_Layer: 5
-  m_Name: DeletedBubbleBG
+  m_Name: OutboundDeletedBubbleBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 4832757622931161705}
   - component: {fileID: 4832757622931161710}
   m_Layer: 5
-  m_Name: DeletedBubble
+  m_Name: OutboundDeletedBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
