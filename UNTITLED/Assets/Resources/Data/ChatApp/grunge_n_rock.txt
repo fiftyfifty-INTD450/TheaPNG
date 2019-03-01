@@ -20,7 +20,7 @@ OUTBOUND__yes, and?
 INBOUND__whatever, loser. Good night :^P
 OUTBOUND__night nerd!
 DATE__April 5th, 2003__3:07 PM
-DELETED
+INBOUND_DELETED
 OUTBOUND__that’s… nice
 INBOUND__just reminded me of the old days!
-DELETED
+OUTBOUND_DELETED

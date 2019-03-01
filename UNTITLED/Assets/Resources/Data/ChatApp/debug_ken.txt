@@ -1,10 +1,11 @@
 DATE__January 1, 2019__12:00 AM
 OUTBOUND__Hello World!
 OUTBOUND__Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet lectus quis quam tempor vehicula. Integer ultricies sollicitudin egestas. Nam.
-DELETED
+OUTBOUND_DELETED
 DATE__January 1, 2019__12:30 AM
 INBOUND__Hello World!
 INBOUND__Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet lectus quis quam tempor vehicula. Integer ultricies sollicitudin egestas. Nam.
+INBOUND_DELETED
 DATE__January 1, 2019__1:00 AM
 OUTBOUND__Hello
 INBOUND__World
