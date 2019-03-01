@@ -23,4 +23,4 @@ DATE__April 5th, 2003__3:07 PM
 DELETED
 OUTBOUND__that’s… nice
 INBOUND__just reminded me of the old days!
-OUTBOUND__[deleted message]
+DELETED

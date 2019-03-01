@@ -88,6 +88,12 @@ public class MessagingApp : MonoBehaviour
 
 	public void UpdateMessages(string username)
 	{
+		// Remove old bubbles
+		foreach (Transform child in messagePanel)
+		{
+			Destroy(child.gameObject);
+		}
+
 		// Read from TextAsset based on contact pressed
 		string textToDisplay = "";
 
@@ -115,30 +121,42 @@ public class MessagingApp : MonoBehaviour
 				content[i] = RemoveNewLineChar(content[i]);
 			}
 
-			// Remove old bubbles
-			foreach (Transform child in messagePanel.transform)
-			{
-				GameObject.Destroy(child.gameObject);
-			}
-
 			// Check which bubble to create
 			if (content[0] == "DELETED")
 			{
 				// Create Deleted Bubble
-				GameObject newBubble = GameObject.Instantiate(DeletedPrefab);
-				//newBubble.transform.SetParent(messagePanel);
+				GameObject newBubble = Instantiate(DeletedPrefab);
+				newBubble.transform.SetParent(messagePanel);
 			}
 			else if (content[0] == "DATE")
 			{
-				// Create Date Seperator with content[1] as Date and content[2] as Time 
+				// Create Date Seperator with content[1] as Date and content[2] as Time
+				string dateText = content[1] + "\n" + content[2];
+
+				GameObject newBubble = Instantiate(DatePrefab);
+				newBubble.transform.SetParent(messagePanel);
+
+				Text dateLabel = newBubble.GetComponentInChildren<Text>();
+				dateLabel.text = dateText;
 			}
 			else if (content[0] == "INBOUND")
 			{
 				// Create Inbound Bubble with content[1] as Text
+				GameObject newBubble = Instantiate(InboundPrefab);
+				newBubble.transform.SetParent(messagePanel);
+
+				Text dateLabel = newBubble.GetComponentInChildren<Text>();
+				dateLabel.text = content[1];
+
 			}
 			else if (content[0] == "OUTBOUND")
 			{
 				// Create Outbound Bubble with content[1] as Text
+				GameObject newBubble = Instantiate(OutboutPrefab);
+				newBubble.transform.SetParent(messagePanel);
+
+				Text dateLabel = newBubble.GetComponentInChildren<Text>();
+				dateLabel.text = content[1];
 			}
 			else
 			{
