@@ -7,4 +7,9 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene("TheaDesktop");
     }
+
+    public void GoToFileExplorer()
+    {
+        SceneManager.LoadScene("FileExplorer");
+    }
 }
