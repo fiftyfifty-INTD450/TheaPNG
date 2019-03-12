@@ -11,11 +11,18 @@ public class FileManager : MonoBehaviour
     public GameObject fseTextfile;
     public GameObject fseVideo;
 
-    private const string basePath = "Assets/Resources/Data/FileSys/Documents";
+    public GameObject imagePanel;
+    public GameObject videoPanel;
+
+    public AudioClip audioMouseClick;
+    public AudioSource audioSource;
+
+    private readonly string basePath = Application.streamingAssetsPath + "/Data/FileSys/Documents";
     private string appendedPath;
 
     void Start()
     {
+        audioSource.clip = audioMouseClick;
         appendedPath = "";
         RefreshWindow();
     }
@@ -30,11 +37,7 @@ public class FileManager : MonoBehaviour
     {
         if (appendedPath == "") return;
 
-        Debug.Log("Curr path: " + basePath + appendedPath);
-
         appendedPath = appendedPath.Substring(0, appendedPath.LastIndexOf('/'));
-
-        Debug.Log("Future path: " + basePath + appendedPath);
 
         RefreshWindow();
     }
@@ -58,12 +61,13 @@ public class FileManager : MonoBehaviour
         FileInfo[] files = d.GetFiles();
         foreach (FileInfo file in files)
         {
-            if (file.Name.EndsWith(".png")) // TODO: Support .jpg
+            if (file.Name.EndsWith(".png") || file.Name.EndsWith(".jpg"))
             {
                 GameObject element = Instantiate(fseImage) as GameObject;
                 element.SetActive(true);
 
                 element.GetComponent<FSEImage>().SetName(file.Name);
+                element.GetComponent<FSEImage>().SetPath(basePath+appendedPath+"/"+file.Name);
 
                 element.transform.SetParent(fseImage.transform.parent, false);
             }
@@ -82,13 +86,28 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSEVideo>().SetName(file.Name);
+                element.GetComponent<FSEVideo>().SetPath(basePath + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseVideo.transform.parent, false);
             }
             else
             {
-                Debug.Log("File System Manager - Ignoring File: "+file.Name+" (Unhandled Filetype)");
+                //Debug.Log("File System Manager - Ignoring File: "+file.Name+" (Unhandled Filetype)");
             }
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            imagePanel.SetActive(false);
+            videoPanel.SetActive(false);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            audioSource.Play();
         }
     }
 
@@ -104,7 +123,9 @@ public class FileManager : MonoBehaviour
     {
         ClearElements();
 
-        DirectoryInfo d = new DirectoryInfo(basePath+appendedPath);
+        Debug.Log("SAP: "+Application.streamingAssetsPath);
+
+        DirectoryInfo d = new DirectoryInfo(basePath + appendedPath);
 
         RefreshFolders(d);
         RefreshFiles(d);

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class FileSysElement : MonoBehaviour
 {
-    private string path;
+    protected string path;
 
     public void SetIcon(Sprite sprite)
     {
