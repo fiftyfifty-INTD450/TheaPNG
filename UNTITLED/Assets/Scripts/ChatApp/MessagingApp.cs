@@ -9,8 +9,10 @@ public class MessagingApp : MonoBehaviour
 	public TextAsset contactData;
 
 	// Contains all messages for each contact
-	public TextAsset debugKen;
 	public TextAsset grungeNRock;
+	public TextAsset hilary;
+	public TextAsset abigail;
+	public TextAsset dad;
 
 	public Transform contactsPanel;
 	public Transform messagePanel;
@@ -96,15 +98,26 @@ public class MessagingApp : MonoBehaviour
 		// Read from TextAsset based on contact pressed
 		string textToDisplay = "";
 
-		if(username == "debug_ken")
-		{
-			textToDisplay = debugKen.text;
-		}
-		else if(username == "grunge_n_rock")
+		if(username == "grunge_n_rock")
 		{
 			textToDisplay = grungeNRock.text;
 		}
-		// Add more else if here
+		else if(username == "Hilary")
+		{
+			textToDisplay = hilary.text;
+		}
+		else if(username == "Abiail")
+		{
+			textToDisplay = abigail.text;
+		}
+		else if(username == "Dad")
+		{
+			textToDisplay = dad.text;
+		}
+		//else if (username == "")
+		//{
+		//	textToDisplay = ;
+		//}
 
 		// Split file into lines
 		string[] lines = textToDisplay.Split('\n');

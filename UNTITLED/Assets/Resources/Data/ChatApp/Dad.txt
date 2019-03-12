@@ -1,0 +1,25 @@
+DATE__August 7, 2003__9:32 AM
+INBOUND__hello Thea, me and mom and going to the summer festival at MacLaren Park at 4:00pm on Saturday, you are welcome to come!
+OUTBOUND__That sounds fun, I would love to come! see you there!
+INBOUND__:)
+DATE__August 31, 2003__6:12 PM
+INBOUND__hi Thea, are you all packed and ready for university tomorrow?
+OUTBOUND__Dad, university doesn’t start for me until September 3rd, but yes, I think I’m ready.
+INBOUND__what are you taking again, your mom forgot and she is too embarrassed to ask.
+OUTBOUND__Business management.
+INBOUND__Ah right, how is it?
+OUTBOUND__its kinda difficult, but its a stable job that will (hopefully) lead to a well-paying career 
+INBOUND__what about your music passion?
+OUTBOUND__dont worry about it! this is more important and I’ll be able to support you guys more.
+INBOUND__you know we’ll support whatever you think is best. love you.
+DATE__September 17, 2003__10:58 PM
+INBOUND__Thea, you disappeared from your mother’s party last night. is everything ok?
+OUTBOUND__everythings fine, i just forgot something at home.
+INBOUND__you seemed sad during the party.
+OUTBOUND__everythings ok, Dad. really
+DATE__October 15, 2003__4:01 PM
+INBOUND__Thea, we haven’t seen you for weeks. Would you like to have supper with us? Your mama is making your favourite dish tonight.
+DATE__October 15, 2003__6:02 PM
+INBOUND__are you reading this?
+DATE__October 15, 2003__8:36 PM
+INBOUND__we miss you
