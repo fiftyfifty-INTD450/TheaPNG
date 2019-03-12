@@ -106,6 +106,7 @@ public class MessagingApp : MonoBehaviour
 		{
 			textToDisplay = grungeNRock.text;
 		}
+		// Add more else if here
 
 		// Split file into lines
 		string[] lines = textToDisplay.Split('\n');

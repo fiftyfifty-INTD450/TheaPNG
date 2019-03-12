@@ -1,4 +1,4 @@
-﻿// Code from https://unity3d.com/learn/tutorials/topics/user-interface-ui/shopscrolllist-script?playlist=17111
+// Code from https://unity3d.com/learn/tutorials/topics/user-interface-ui/shopscrolllist-script?playlist=17111
 
 using UnityEngine;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ public class ObjectPool : MonoBehaviour
 {
 	// The prefab that this object pool returns instances of
 	public GameObject prefab;
+
 	// Collection of currently inactive instances of the prefab
 	private Stack<GameObject> inactiveInstances = new Stack<GameObject>();
 
