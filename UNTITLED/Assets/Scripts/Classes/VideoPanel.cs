@@ -8,6 +8,7 @@ public class VideoPanel : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public RawImage videoImage;
+    public AudioSource audioSource;
 
     public void PlayStreamingClip(string path, bool looping = false)
     {
@@ -20,7 +21,6 @@ public class VideoPanel : MonoBehaviour
 
     private IEnumerator PlayVideo()
     {
-        var audioSource = videoPlayer.GetComponent<AudioSource>();
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         videoPlayer.controlledAudioTrackCount = 1;
         videoPlayer.EnableAudioTrack(0, true);
