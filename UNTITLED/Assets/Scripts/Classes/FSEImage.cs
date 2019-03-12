@@ -11,14 +11,6 @@ public class FSEImage : FileSysElement
     {
         Debug.Log("Opening Image: "+(this.GetComponentInChildren(typeof(Text)) as Text).text);
 
-        /*string imagePath = path.Replace("Assets/Resources/", "");
-        int idx = imagePath.LastIndexOf(".");
-        if (idx > 0)
-        {
-            imagePath = imagePath.Substring(0, idx);
-        }*/
-
-
         Debug.Log("Setting Image from: " + path);
 
         imagePanel.GetComponent<ImagePanel>().SetImage(path);

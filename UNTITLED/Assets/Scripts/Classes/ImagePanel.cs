@@ -7,11 +7,6 @@ using System.IO;
 [RequireComponent(typeof(Image))]
 public class ImagePanel : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
     private Texture2D LoadTexture(string path)
     {
         Texture2D tex;
@@ -29,9 +24,6 @@ public class ImagePanel : MonoBehaviour
 
     public Sprite LoadSprite(string path, float pixelsPerUnit = 100.0f)
     {
-
-        // Load a PNG or JPG image from disk to a Texture2D, assign this texture to a new sprite and return its reference
-
         Sprite sprite;
         Texture2D texture = LoadTexture(path);
         sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0), pixelsPerUnit);
