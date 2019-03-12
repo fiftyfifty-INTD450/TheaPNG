@@ -36,11 +36,7 @@ public class FileManager : MonoBehaviour
     {
         if (appendedPath == "") return;
 
-        //Debug.Log("Curr path: " + basePath + appendedPath);
-
         appendedPath = appendedPath.Substring(0, appendedPath.LastIndexOf('/'));
-
-        //Debug.Log("Future path: " + basePath + appendedPath);
 
         RefreshWindow();
     }
@@ -64,7 +60,7 @@ public class FileManager : MonoBehaviour
         FileInfo[] files = d.GetFiles();
         foreach (FileInfo file in files)
         {
-            if (file.Name.EndsWith(".png")) // TODO: Support .jpg 
+            if (file.Name.EndsWith(".png") || file.Name.EndsWith(".jpg"))
             {
                 GameObject element = Instantiate(fseImage) as GameObject;
                 element.SetActive(true);
