@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
-[RequireComponent(typeof(Image))]
 public class ImagePanel : MonoBehaviour
 {
     private Texture2D LoadTexture(string path)

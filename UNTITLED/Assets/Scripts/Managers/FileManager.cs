@@ -12,6 +12,7 @@ public class FileManager : MonoBehaviour
     public GameObject fseVideo;
 
     public GameObject imagePanel;
+    public GameObject videoPanel;
 
     public AudioClip audioMouseClick;
     public AudioSource audioSource;
@@ -85,6 +86,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSEVideo>().SetName(file.Name);
+                element.GetComponent<FSEVideo>().SetPath(basePath + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseVideo.transform.parent, false);
             }
@@ -100,6 +102,7 @@ public class FileManager : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             imagePanel.SetActive(false);
+            videoPanel.SetActive(false);
         }
 
         if (Input.GetMouseButtonDown(0))
