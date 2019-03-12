@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.IO;
-using System.Collections.Generic;
 
 public class MessagingApp : MonoBehaviour
 {

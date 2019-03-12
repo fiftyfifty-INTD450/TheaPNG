@@ -22,11 +22,6 @@ public class EmailButton : MonoBehaviour
 		webApp = currentWebApp;
 	}
 
-	public void Test()
-	{
-		print("Test");
-	}
-
 	public void HandleClick()
 	{
 		webApp.UpdateEmailContent(subjectLabel.text, dateLabel.text);

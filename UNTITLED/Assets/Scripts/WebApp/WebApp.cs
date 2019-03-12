@@ -1,15 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System;
-using System.IO;
 using System.Collections.Generic;
 
 public class WebApp : MonoBehaviour
 {
-	public TextAsset kensEmail;
+	// Add email data here
 	public TextAsset rhoderaBusiness1;
 	public TextAsset rhoderaBusiness2;
-	//public TextAsset
+	public TextAsset galaxyInvestments1;
+	public TextAsset galaxyInvestments2;
+	public TextAsset mainEmail1;
+	public TextAsset mainEmail2;
+	public TextAsset eastEndBar1;
+	public TextAsset eastEndBar2;
+	public TextAsset ECONPerformance;
+	public TextAsset coverLetter;
 
 	// List of Emails
 	public Transform emailsPanel;
@@ -21,6 +26,9 @@ public class WebApp : MonoBehaviour
 	public Text emailCCText;
 	public Text emailDateText;
 	public Text emailContentText;
+	public Image resume1;
+	public Image resume2;
+
 
 	public ObjectPool buttonObjectPool;
 
@@ -33,7 +41,14 @@ public class WebApp : MonoBehaviour
 		// Manually order and add all emails here 
 		emails.Add(rhoderaBusiness1);
 		emails.Add(rhoderaBusiness2);
-		emails.Add(kensEmail);
+		emails.Add(galaxyInvestments1);
+		emails.Add(galaxyInvestments2);
+		emails.Add(mainEmail1);
+		emails.Add(mainEmail2);
+		emails.Add(eastEndBar1);
+		emails.Add(eastEndBar2);
+		emails.Add(ECONPerformance);
+		emails.Add(coverLetter);
 
 		for (int i = 0; i < emails.Count; i++)
 		{
@@ -131,6 +146,20 @@ public class WebApp : MonoBehaviour
 			}
 
 			emailContentText.text = emailContents;
+
+			// Attach Resume
+			if(lines[0] == "(Draft) Cover Letter")
+			{
+				resume1.enabled = true;
+				resume2.enabled = true;
+
+				emailFromText.text = "To: ";
+			}
+			else
+			{
+				resume1.enabled = false;
+				resume2.enabled = false;
+			}
 		}
 	}
 }
