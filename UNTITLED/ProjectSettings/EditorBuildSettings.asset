@@ -18,9 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/TheaDesktop.unity
     guid: 323b01e64299b924aa2b8cce88d693dc
   - enabled: 1
+    path: Assets/Scenes/FileExplorer.unity
+    guid: bf6e0039dbfdfa848a2e7921b1b5bfcb
+  - enabled: 1
     path: Assets/Scenes/ChatApp.unity
     guid: 86429923d62bf884b9f6937a04a38abe
   - enabled: 1
-    path: Assets/Scenes/FileExplorer.unity
-    guid: bf6e0039dbfdfa848a2e7921b1b5bfcb
+    path: Assets/Scenes/WebApp.unity
+    guid: 9b6186d29c1873f45bf599ade4c42087
   m_configObjects: {}
