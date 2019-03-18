@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
@@ -12,4 +12,14 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene("FileExplorer");
     }
+
+	public void GoToInternet()
+	{
+		SceneManager.LoadScene("WebApp");
+	}
+
+	public void GoToMessaging()
+	{
+		SceneManager.LoadScene("ChatApp");
+	}
 }
