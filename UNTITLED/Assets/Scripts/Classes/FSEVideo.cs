@@ -9,13 +9,7 @@ public class FSEVideo : FileSysElement
 
     public void OpenVideo()
     {
-        // TODO
-        Debug.Log("Opening Video: " + (this.GetComponentInChildren(typeof(Text)) as Text).text);
-
-        Debug.Log("Setting Video from: " + path);
-
         videoPanel.SetActive(true);
         videoPanel.GetComponent<VideoPanel>().PlayStreamingClip(path);
-        //videoPanel.SetActive(true);
     }
 }

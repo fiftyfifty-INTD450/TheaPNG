@@ -21,7 +21,6 @@ public class TextfilePanel : MonoBehaviour
         StreamReader reader = new StreamReader(p);
         string text = reader.ReadToEnd();
         reader.Close();
-        //Debug.Log(text);
         return text;
     }
 }

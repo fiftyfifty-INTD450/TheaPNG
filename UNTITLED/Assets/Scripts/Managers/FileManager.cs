@@ -10,10 +10,12 @@ public class FileManager : MonoBehaviour
     public GameObject fseImage;
     public GameObject fseTextfile;
     public GameObject fseVideo;
+    public GameObject fseAudio;
 
     public GameObject imagePanel;
     public GameObject videoPanel;
     public GameObject textfilePanel;
+    public GameObject audioPanel;
 
     public AudioClip audioMouseClick;
     public AudioSource audioSource;
@@ -92,6 +94,16 @@ public class FileManager : MonoBehaviour
 
                 element.transform.SetParent(fseVideo.transform.parent, false);
             }
+            else if (file.Name.EndsWith(".wav"))
+            {
+                GameObject element = Instantiate(fseAudio) as GameObject;
+                element.SetActive(true);
+
+                element.GetComponent<FSEAudio>().SetName(file.Name);
+                element.GetComponent<FSEAudio>().SetPath(basePath + appendedPath + "/" + file.Name);
+
+                element.transform.SetParent(fseAudio.transform.parent, false);
+            }
             else
             {
                 //Debug.Log("File System Manager - Ignoring File: "+file.Name+" (Unhandled Filetype)");
@@ -106,6 +118,7 @@ public class FileManager : MonoBehaviour
             imagePanel.SetActive(false);
             videoPanel.SetActive(false);
             textfilePanel.SetActive(false);
+            audioPanel.SetActive(false);
         }
 
         if (Input.GetMouseButtonDown(0))

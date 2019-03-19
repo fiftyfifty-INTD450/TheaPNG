@@ -9,8 +9,6 @@ public class FSEFolder : FileSysElement
 
     public void OpenFolder()
     {
-        Debug.Log("Opening Folder: " + (this.GetComponentInChildren(typeof(Text)) as Text).text);
-
         window.GetComponent<FileManager>().EnterFolder((this.GetComponentInChildren(typeof(Text)) as Text).text);
     }
 }
