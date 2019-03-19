@@ -13,6 +13,7 @@ public class FileManager : MonoBehaviour
 
     public GameObject imagePanel;
     public GameObject videoPanel;
+    public GameObject textfilePanel;
 
     public AudioClip audioMouseClick;
     public AudioSource audioSource;
@@ -77,6 +78,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSETextfile>().SetName(file.Name);
+                element.GetComponent<FSETextfile>().SetPath(basePath + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseTextfile.transform.parent, false);
             }
@@ -103,6 +105,7 @@ public class FileManager : MonoBehaviour
         {
             imagePanel.SetActive(false);
             videoPanel.SetActive(false);
+            textfilePanel.SetActive(false);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -129,15 +132,5 @@ public class FileManager : MonoBehaviour
 
         RefreshFolders(d);
         RefreshFiles(d);
-    }
-
-    // Temporary example code. To be removed once no longer needed.
-    private string ReadTextFile(string p)
-    {
-        StreamReader reader = new StreamReader(p);
-        string text = reader.ReadToEnd();
-        reader.Close();
-        Debug.Log(text);
-        return text;
     }
 }
