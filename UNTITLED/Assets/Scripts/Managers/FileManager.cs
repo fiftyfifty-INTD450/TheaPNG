@@ -123,7 +123,7 @@ public class FileManager : MonoBehaviour
     {
         ClearElements();
 
-        Debug.Log("SAP: "+Application.streamingAssetsPath);
+        //Debug.Log("Streaming Assets Path: "+Application.streamingAssetsPath);
 
         DirectoryInfo d = new DirectoryInfo(basePath + appendedPath);
 
