@@ -3,7 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
 {
-    public void GoToTheaDesktop()
+	public void GoToInitialVideo()
+	{
+		SceneManager.LoadScene("InitialVideo");
+	}
+
+	public void GoToTheaDesktop()
     {
         SceneManager.LoadScene("TheaDesktop");
     }
