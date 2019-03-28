@@ -8,6 +8,11 @@ public class Navigation : MonoBehaviour
 		SceneManager.LoadScene("InitialVideo");
 	}
 
+	public void GoToLoginScreen()
+	{
+		SceneManager.LoadScene("LoginScreen");
+	}
+
 	public void GoToTheaDesktop()
     {
         SceneManager.LoadScene("TheaDesktop");
