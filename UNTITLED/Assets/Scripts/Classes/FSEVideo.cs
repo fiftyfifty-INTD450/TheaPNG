@@ -7,9 +7,19 @@ public class FSEVideo : FileSysElement
 {
     public GameObject videoPanel;
 
-    public void OpenVideo()
+    public override void Open()
     {
-        videoPanel.SetActive(true);
-        videoPanel.GetComponent<VideoPanel>().PlayStreamingClip(path);
+        if (locked)
+        {
+            // Enable password prompt
+            GameObject pp = transform.parent.parent.parent.parent.GetChild(7).gameObject;
+            pp.SetActive(true);
+            pp.GetComponent<PasswordPrompt>().SetFile(this);
+        }
+        else
+        {
+            videoPanel.SetActive(true);
+            videoPanel.GetComponent<VideoPanel>().PlayStreamingClip(path);
+        }
     }
 }

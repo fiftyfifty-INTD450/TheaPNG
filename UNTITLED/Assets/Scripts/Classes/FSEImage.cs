@@ -7,9 +7,19 @@ public class FSEImage : FileSysElement
 {
     public GameObject imagePanel;
 
-    public void OpenImage()
+    public override void Open()
     {
-        imagePanel.GetComponent<ImagePanel>().SetImage(path);
-        imagePanel.SetActive(true);
+        if (locked)
+        {
+            // Enable password prompt
+            GameObject pp = transform.parent.parent.parent.parent.GetChild(7).gameObject;
+            pp.SetActive(true);
+            pp.GetComponent<PasswordPrompt>().SetFile(this);
+        }
+        else
+        {
+            imagePanel.GetComponent<ImagePanel>().SetImage(path);
+            imagePanel.SetActive(true);
+        }
     }
 }

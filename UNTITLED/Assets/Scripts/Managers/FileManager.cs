@@ -45,6 +45,14 @@ public class FileManager : MonoBehaviour
         RefreshWindow();
     }
 
+    private string ReadFile(string path)
+    {
+        StreamReader reader = new StreamReader(path);
+        string text = reader.ReadToEnd();
+        reader.Close();
+        return text;
+    }
+
     private void RefreshFolders(DirectoryInfo d)
     {
         DirectoryInfo[] dirs = d.GetDirectories();
@@ -56,6 +64,15 @@ public class FileManager : MonoBehaviour
             element.GetComponent<FSEFolder>().SetName(dir.Name);
 
             element.transform.SetParent(fseFolder.transform.parent, false);
+
+            string passPath = dir.FullName + ".password";
+            if (File.Exists(passPath))
+            {
+                string jsonString = ReadFile(passPath);
+                FSPasswordInfo pass = FSPasswordInfo.CreateFromJSON(jsonString);
+                element.GetComponent<FSEFolder>().SetPasswordInfo(pass);
+                element.GetComponent<FSEFolder>().Lock();
+            }
         }
     }
 
@@ -64,45 +81,82 @@ public class FileManager : MonoBehaviour
         FileInfo[] files = d.GetFiles();
         foreach (FileInfo file in files)
         {
+            GameObject element = null;
             if (file.Name.EndsWith(".png") || file.Name.EndsWith(".jpg"))
             {
-                GameObject element = Instantiate(fseImage) as GameObject;
+                element = Instantiate(fseImage) as GameObject;
                 element.SetActive(true);
 
                 element.GetComponent<FSEImage>().SetName(file.Name);
                 element.GetComponent<FSEImage>().SetPath(basePath+appendedPath+"/"+file.Name);
 
                 element.transform.SetParent(fseImage.transform.parent, false);
+
+                string passPath = file.FullName + ".password";
+                if (File.Exists(passPath))
+                {
+                    string jsonString = ReadFile(passPath);
+                    FSPasswordInfo pass = FSPasswordInfo.CreateFromJSON(jsonString);
+                    element.GetComponent<FSEImage>().SetPasswordInfo(pass);
+                    element.GetComponent<FSEImage>().Lock();
+                }
             }
             else if (file.Name.EndsWith(".txt"))
             {
-                GameObject element = Instantiate(fseTextfile) as GameObject;
+                element = Instantiate(fseTextfile) as GameObject;
                 element.SetActive(true);
 
                 element.GetComponent<FSETextfile>().SetName(file.Name);
                 element.GetComponent<FSETextfile>().SetPath(basePath + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseTextfile.transform.parent, false);
+
+                string passPath = file.FullName + ".password";
+                if (File.Exists(passPath))
+                {
+                    string jsonString = ReadFile(passPath);
+                    FSPasswordInfo pass = FSPasswordInfo.CreateFromJSON(jsonString);
+                    element.GetComponent<FSETextfile>().SetPasswordInfo(pass);
+                    element.GetComponent<FSETextfile>().Lock();
+                }
             }
             else if (file.Name.EndsWith(".mp4"))
             {
-                GameObject element = Instantiate(fseVideo) as GameObject;
+                element = Instantiate(fseVideo) as GameObject;
                 element.SetActive(true);
 
                 element.GetComponent<FSEVideo>().SetName(file.Name);
                 element.GetComponent<FSEVideo>().SetPath(basePath + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseVideo.transform.parent, false);
+
+                string passPath = file.FullName + ".password";
+                if (File.Exists(passPath))
+                {
+                    string jsonString = ReadFile(passPath);
+                    FSPasswordInfo pass = FSPasswordInfo.CreateFromJSON(jsonString);
+                    element.GetComponent<FSEVideo>().SetPasswordInfo(pass);
+                    element.GetComponent<FSEVideo>().Lock();
+                }
             }
             else if (file.Name.EndsWith(".wav"))
             {
-                GameObject element = Instantiate(fseAudio) as GameObject;
+                element = Instantiate(fseAudio) as GameObject;
                 element.SetActive(true);
 
                 element.GetComponent<FSEAudio>().SetName(file.Name);
                 element.GetComponent<FSEAudio>().SetPath(basePath + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseAudio.transform.parent, false);
+
+                string passPath = file.FullName + ".password";
+                if (File.Exists(passPath))
+                {
+                    string jsonString = ReadFile(passPath);
+                    FSPasswordInfo pass = FSPasswordInfo.CreateFromJSON(jsonString);
+                    element.GetComponent<FSEAudio>().SetPasswordInfo(pass);
+                    element.GetComponent<FSEAudio>().Lock();
+                }
             }
             else
             {
