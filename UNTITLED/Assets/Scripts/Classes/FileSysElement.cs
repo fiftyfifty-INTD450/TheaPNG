@@ -4,13 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class FileSysElement : MonoBehaviour
+public abstract class FileSysElement : MonoBehaviour
 {
     protected string path;
+    protected FSPasswordInfo password;
+    protected bool locked = false;
+
+    public abstract void Open();
 
     public void SetIcon(Sprite sprite)
     {
         GetComponent<Image>().sprite = sprite;
+    }
+
+    public bool HasPassword()
+    {
+        return password != null;
+    }
+
+    public void Lock()
+    {
+        locked = true;
+    }
+
+    public void Unlock()
+    {
+        locked = false;
     }
 
     public void SetName(string name)
@@ -18,13 +37,23 @@ public class FileSysElement : MonoBehaviour
         (this.GetComponentInChildren(typeof(Text)) as Text).text = name;
     }
 
-    public void SetPath(string p)
+    public void SetPath(string path)
     {
-        path = p;
+        this.path = path;
     }
 
-    public string getPath()
+    public void SetPasswordInfo(FSPasswordInfo password)
+    {
+        this.password = password;
+    }
+
+    public string GetPath()
     {
         return path;
+    }
+
+    public FSPasswordInfo GetPasswordInfo()
+    {
+        return password;
     }
 }

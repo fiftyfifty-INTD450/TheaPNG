@@ -32,6 +32,11 @@ public class UIWindow : MonoBehaviour
         // This will make the window be resizable by the top
         // title bar - no matter how wide it gets.
         GUI.DragWindow(new Rect(0, 0, 10000, 20));
+
+        if (GUI.Button(new Rect(windowRect.width - 60, 0, 60, 60), "Exit"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void SetTitle(string title)

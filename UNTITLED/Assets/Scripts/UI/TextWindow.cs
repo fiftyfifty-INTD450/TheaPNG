@@ -15,6 +15,9 @@ public class TextWindow : UIWindow
     {
         base.WindowContent(id);
 
-        GUI.Button(new Rect(windowRect.width * 0.5f - 60, windowRect.height * 0.5f - 25, 120, 50), "Button");
+        if(GUI.Button(new Rect(windowRect.width * 0.5f - 60, windowRect.height * 0.5f - 25, 120, 50), "Button"))
+        {
+            Debug.Log("CLICKEROOD!");
+        }
     }
 }
