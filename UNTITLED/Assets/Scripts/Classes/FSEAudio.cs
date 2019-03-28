@@ -9,9 +9,6 @@ public class FSEAudio : FileSysElement
 
     public void OpenAudio()
     {
-        Debug.Log("Opening Audio: " + (this.GetComponentInChildren(typeof(Text)) as Text).text);
-        Debug.Log("Setting Audio from: " + path);
-
         audioPanel.SetActive(true);
         audioPanel.GetComponent<AudioPanel>().PlayStreamingClip(path);
     }
