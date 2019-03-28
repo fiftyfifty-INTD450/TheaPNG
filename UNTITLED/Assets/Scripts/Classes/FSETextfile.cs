@@ -5,9 +5,20 @@ using UnityEngine.UI;
 
 public class FSETextfile : FileSysElement
 {
-    public void OpenTextfile()
+    public GameObject textfilePanel;
+    public override void Open()
     {
-        // TODO
-        Debug.Log("Opening Textfile: " + (this.GetComponentInChildren(typeof(Text)) as Text).text);
+        if (locked)
+        {
+            // Enable password prompt
+            GameObject pp = transform.parent.parent.parent.parent.GetChild(7).gameObject;
+            pp.SetActive(true);
+            pp.GetComponent<PasswordPrompt>().SetFile(this);
+        }
+        else
+        {
+            textfilePanel.GetComponent<TextfilePanel>().SetText(path);
+            textfilePanel.SetActive(true);
+        }
     }
 }

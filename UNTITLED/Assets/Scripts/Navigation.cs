@@ -1,9 +1,19 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
 {
-    public void GoToTheaDesktop()
+	public void GoToInitialVideo()
+	{
+		SceneManager.LoadScene("InitialVideo");
+	}
+
+	public void GoToLoginScreen()
+	{
+		SceneManager.LoadScene("LoginScreen");
+	}
+
+	public void GoToTheaDesktop()
     {
         SceneManager.LoadScene("TheaDesktop");
     }
@@ -12,4 +22,14 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene("FileExplorer");
     }
+
+	public void GoToInternet()
+	{
+		SceneManager.LoadScene("WebApp");
+	}
+
+	public void GoToMessaging()
+	{
+		SceneManager.LoadScene("ChatApp");
+	}
 }
