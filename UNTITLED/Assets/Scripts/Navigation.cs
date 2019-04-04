@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
 {
+    public GameObject StartMenu;
+    public GameObject QuitConfirm;
+
 	public void GoToInitialVideo()
 	{
 		SceneManager.LoadScene("InitialVideo");
@@ -32,4 +35,35 @@ public class Navigation : MonoBehaviour
 	{
 		SceneManager.LoadScene("ChatApp");
 	}
+
+    public void ToggleStartMenu()
+    {
+        if (StartMenu.activeSelf)
+        {
+            StartMenu.SetActive(false);
+        }
+        else
+        {
+            StartMenu.SetActive(true);
+        }
+    }
+
+    public void ShowQuitConfirm()
+    {
+        QuitConfirm.SetActive(true);
+    }
+
+    public void HideQuitConfirm()
+    {
+        QuitConfirm.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
