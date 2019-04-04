@@ -12,7 +12,7 @@ public class FSEAudio : FileSysElement
         if (locked)
         {
             // Enable password prompt
-            GameObject pp = transform.parent.parent.parent.parent.GetChild(7).gameObject;
+            GameObject pp = transform.parent.parent.parent.parent.GetChild(8).gameObject;
             pp.SetActive(true);
             pp.GetComponent<PasswordPrompt>().SetFile(this);
         }
