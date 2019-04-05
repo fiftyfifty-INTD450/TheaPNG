@@ -8,7 +8,8 @@ public class InitialVideo : MonoBehaviour
 {
 
 	public VideoPlayer videoPlayer;
-	public VideoClip videoToPlay;
+	public VideoClip introVideo;
+	public VideoClip introCutscene;
 
 	public GameObject titleBar;
 	public GameObject videoBG;
@@ -16,14 +17,25 @@ public class InitialVideo : MonoBehaviour
 
     void Start()
     {
-		double videoDuration = videoToPlay.length;
+		double videoDuration = introVideo.length;
 		StartCoroutine(WaitAndLoad(videoDuration));
 
 		titleBar.SetActive(false);
 		videoBG.SetActive(false);
 		videoPlayerActive.SetActive(true);
 
-		videoPlayer.clip = videoToPlay;
+		videoPlayer.clip = introVideo;
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyUp(KeyCode.F12))
+		{
+			StopAllCoroutines();
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			SceneManager.LoadScene("TheaDesktop");
+		}
 	}
 
 	private IEnumerator WaitAndLoad(double videoDuration)
@@ -36,12 +48,16 @@ public class InitialVideo : MonoBehaviour
 		// Wait for initial video to finish
 		yield return new WaitForSeconds((float) videoDuration);
 
-		videoPlayerActive.SetActive(false);
-		titleBar.SetActive(true);
-		videoBG.SetActive(true);
+		videoPlayer.Stop();
+		videoPlayer.clip = introCutscene;
+		videoPlayer.Play();
+
+		yield return new WaitForSeconds((float) introCutscene.length);
 
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
+
+		SceneManager.LoadScene("TheaDesktop");
 	}
 
 	public void GoToSamDesktop()
