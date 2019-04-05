@@ -142,7 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1709456280}
-  videoToPlay: {fileID: 32900000, guid: 635c33defd441bc4ebec75b47385b37f, type: 3}
+  introVideo: {fileID: 32900000, guid: 635c33defd441bc4ebec75b47385b37f, type: 3}
+  introCutscene: {fileID: 32900000, guid: 0e801a6c21ecd7542b52ba5b623b7cb2, type: 3}
   titleBar: {fileID: 1846793633}
   videoBG: {fileID: 1522614714}
   videoPlayerActive: {fileID: 1709456279}
