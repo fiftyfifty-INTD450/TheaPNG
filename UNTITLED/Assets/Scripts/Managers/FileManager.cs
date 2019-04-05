@@ -58,6 +58,10 @@ public class FileManager : MonoBehaviour
         DirectoryInfo[] dirs = d.GetDirectories();
         foreach (DirectoryInfo dir in dirs)
         {
+#if !UNITY_EDITOR
+            if (dir.Name.StartsWith("_")) continue;
+#endif
+
             GameObject element = Instantiate(fseFolder) as GameObject;
             element.SetActive(true);
 
