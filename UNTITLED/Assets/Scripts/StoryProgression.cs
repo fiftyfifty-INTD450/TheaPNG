@@ -2,42 +2,34 @@ using UnityEngine;
 
 public class StoryProgression : MonoBehaviour
 {
+	public static StoryProgression Instance;
 
-	private bool emailPasswordFound;
-	private bool fileExplorerFound;
-	private bool newCall;
+	public bool emailPasswordFound;
+	public bool filePasswordFound;
+	public bool firstCall;
 
-	public StoryProgression()
+	private void Awake()
 	{
-		emailPasswordFound = false;
-		fileExplorerFound = false;
-		newCall = true;
-	}
-
-	public void TogglePassword1()
-	{
-		emailPasswordFound = true;
-	}
-
-	public void TogglePassword2()
-	{
-		fileExplorerFound = true;
+		if (Instance == null)
+		{
+			DontDestroyOnLoad(gameObject);
+			Instance = this;
+		}
+		else if (Instance != this)
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	public bool BothPasswordsFound()
 	{
-		if(emailPasswordFound && fileExplorerFound && newCall)
+		if(emailPasswordFound && filePasswordFound && firstCall)
 		{
+			firstCall = false;
+
 			return true;
 		}
 
 		return false;
-	}
-
-	public void ToggleNewCall()
-	{
-		//newCall = false;
-		emailPasswordFound = false;
-		fileExplorerFound = false;
 	}
 }

@@ -9,6 +9,7 @@ public class InitialVideo : MonoBehaviour
 
 	public VideoPlayer videoPlayer;
 	public VideoClip videoToPlay;
+
 	public GameObject videoBG;
 	public GameObject videoPlayerActive;
 	public GameObject cursor;

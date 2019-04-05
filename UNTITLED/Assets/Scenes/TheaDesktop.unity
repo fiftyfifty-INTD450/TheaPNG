@@ -857,7 +857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266691648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 478.56064, y: 346.5308, z: -7.7502203}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -889,12 +889,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ac85ce5f5a7c44c9ff45e6ee463a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 382761275}
   receivingCall: {fileID: 1275603845}
   inCall: {fileID: 443753241}
-  ringtone: {fileID: 8300000, guid: cf6dcb28a5dd44f44a4d8616c0496081, type: 3}
-  call: {fileID: 8300000, guid: b53664f62d060e041a9e0809c6c6040d, type: 3}
   audioPlayer: {fileID: 1874228731}
+  ringtone: {fileID: 8300000, guid: cf6dcb28a5dd44f44a4d8616c0496081, type: 3}
+  callAudio: {fileID: 8300000, guid: b53664f62d060e041a9e0809c6c6040d, type: 3}
 --- !u!1 &306708098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 382761276}
+  - component: {fileID: 382761277}
   m_Layer: 0
   m_Name: Story Progression
   m_TagString: Untagged
@@ -1123,12 +1123,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382761275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 492.5837, y: 265.38126, z: -9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &382761277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382761275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f688f4c2023f84b85007e97a223cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emailPasswordFound: 0
+  filePasswordFound: 0
+  firstCall: 1
 --- !u!1 &443753241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2371,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 266691652}
-        m_MethodName: TogglePassword1
+        m_MethodName: ToggleEmailPassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3638,7 +3653,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 266691652}
-        m_MethodName: TogglePassword2
+        m_MethodName: ToggleFilePassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3715,10 +3730,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3808,7 +3823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874228730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 528.734, y: 404.49442, z: -2.7994406}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

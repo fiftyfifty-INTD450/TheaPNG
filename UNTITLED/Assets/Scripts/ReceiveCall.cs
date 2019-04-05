@@ -3,42 +3,19 @@ using UnityEngine;
 
 public class ReceiveCall : MonoBehaviour
 {
-	public GameObject obj;
 	public GameObject receivingCall;
 	public GameObject inCall;
 
-	public AudioClip ringtone;
-	public AudioClip call;
 	public AudioSource audioPlayer;
-
-	private StoryProgression storyProgression;
-
-	void Start()
-	{
-		receivingCall.SetActive(false);
-		inCall.SetActive(false);
-
-		storyProgression = obj.AddComponent<StoryProgression>();
-	}
+	public AudioClip ringtone;
+	public AudioClip callAudio;
 
 	void Update()
 	{
-		if (storyProgression.BothPasswordsFound())
+		if (StoryProgression.Instance.BothPasswordsFound())
 		{
-			storyProgression.ToggleNewCall();
-
 			StartCoroutine(PhoneRing());
 		}
-	}
-
-	public void TogglePassword1()
-	{
-		storyProgression.TogglePassword1();
-	}
-
-	public void TogglePassword2()
-	{
-		storyProgression.TogglePassword2();
 	}
 
 	private IEnumerator PhoneRing()
@@ -50,7 +27,7 @@ public class ReceiveCall : MonoBehaviour
 		audioPlayer.clip = ringtone;
 		audioPlayer.Play();
 
-		yield return new WaitForSeconds(ringtoneLength * 2);
+		yield return new WaitForSeconds(ringtoneLength - 0.5f);
 
 		Hangup();
 	}
@@ -68,16 +45,20 @@ public class ReceiveCall : MonoBehaviour
 
 	private IEnumerator Call()
 	{
-		float callLength = call.length;
+		float callLength = callAudio.length;
+
+		print(callLength);
 
 		receivingCall.SetActive(false);
 		inCall.SetActive(true);
 
 		audioPlayer.Stop();
-		audioPlayer.clip = call;
+		audioPlayer.clip = callAudio;
 		audioPlayer.Play();
 
-		yield return new WaitForSeconds(callLength);
+		yield return new WaitForSeconds(callLength + 0.5f);
+
+		print("Ending Call");
 
 		EndCall();
 	}
@@ -85,6 +66,18 @@ public class ReceiveCall : MonoBehaviour
 	public void EndCall()
 	{
 		audioPlayer.Stop();
+
 		inCall.SetActive(false);
 	}
+
+	public void ToggleEmailPassword()
+	{
+		StoryProgression.Instance.emailPasswordFound = true;
+	}
+
+	public void ToggleFilePassword()
+	{
+		StoryProgression.Instance.filePasswordFound = true;
+	}
+
 }
