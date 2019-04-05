@@ -3,42 +3,22 @@ using UnityEngine;
 
 public class ReceiveCall : MonoBehaviour
 {
-	public GameObject obj;
 	public GameObject receivingCall;
 	public GameObject inCall;
 
-	public AudioClip ringtone;
-	public AudioClip call;
 	public AudioSource audioPlayer;
+	public AudioClip ringtone;
+	public AudioClip callAudio;
 
-	private StoryProgression storyProgression;
-
-	void Start()
-	{
-		receivingCall.SetActive(false);
-		inCall.SetActive(false);
-
-		storyProgression = obj.AddComponent<StoryProgression>();
-	}
+	private IEnumerator phoneCallCoroutine;
 
 	void Update()
 	{
-		if (storyProgression.BothPasswordsFound())
+		if (BothPasswordsFound())
 		{
-			storyProgression.ToggleNewCall();
-
-			StartCoroutine(PhoneRing());
+			phoneCallCoroutine = PhoneRing();
+			StartCoroutine(phoneCallCoroutine);
 		}
-	}
-
-	public void TogglePassword1()
-	{
-		storyProgression.TogglePassword1();
-	}
-
-	public void TogglePassword2()
-	{
-		storyProgression.TogglePassword2();
 	}
 
 	private IEnumerator PhoneRing()
@@ -50,7 +30,7 @@ public class ReceiveCall : MonoBehaviour
 		audioPlayer.clip = ringtone;
 		audioPlayer.Play();
 
-		yield return new WaitForSeconds(ringtoneLength * 2);
+		yield return new WaitForSeconds(ringtoneLength - 0.2f);
 
 		Hangup();
 	}
@@ -63,21 +43,22 @@ public class ReceiveCall : MonoBehaviour
 
 	public void PickUp()
 	{
+		StopCoroutine(phoneCallCoroutine);
 		StartCoroutine(Call());
 	}
 
 	private IEnumerator Call()
 	{
-		float callLength = call.length;
+		float callLength = callAudio.length;
 
 		receivingCall.SetActive(false);
 		inCall.SetActive(true);
 
 		audioPlayer.Stop();
-		audioPlayer.clip = call;
+		audioPlayer.clip = callAudio;
 		audioPlayer.Play();
 
-		yield return new WaitForSeconds(callLength);
+		yield return new WaitForSeconds(callLength + 0.5f);
 
 		EndCall();
 	}
@@ -85,6 +66,36 @@ public class ReceiveCall : MonoBehaviour
 	public void EndCall()
 	{
 		audioPlayer.Stop();
+
 		inCall.SetActive(false);
+	}
+
+	public void ToggleEmailPassword()
+	{
+		StoryProgression.Instance.emailPasswordFound = true;
+	}
+
+	public void ToggleFilePassword()
+	{
+		StoryProgression.Instance.filePasswordFound = true;
+	}
+
+	public bool BothPasswordsFound()
+	{
+		bool emailPasswordFound = StoryProgression.Instance.emailPasswordFound;
+		bool filePasswordFound = StoryProgression.Instance.filePasswordFound;
+		bool firstCall = StoryProgression.Instance.firstCall;
+
+		if (emailPasswordFound && filePasswordFound && firstCall)
+		{
+			StoryProgression.Instance.firstCall = false;
+
+			StoryProgression.Instance.emailPasswordFound = false;
+			StoryProgression.Instance.filePasswordFound = false;
+
+			return true;
+		}
+
+		return false;
 	}
 }
