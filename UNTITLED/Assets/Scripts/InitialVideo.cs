@@ -10,15 +10,16 @@ public class InitialVideo : MonoBehaviour
 	public VideoPlayer videoPlayer;
 	public VideoClip videoToPlay;
 
+	public GameObject titleBar;
 	public GameObject videoBG;
 	public GameObject videoPlayerActive;
-	public GameObject cursor;
 
     void Start()
     {
 		double videoDuration = videoToPlay.length;
 		StartCoroutine(WaitAndLoad(videoDuration));
 
+		titleBar.SetActive(false);
 		videoBG.SetActive(false);
 		videoPlayerActive.SetActive(true);
 
@@ -31,21 +32,20 @@ public class InitialVideo : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 
-		cursor.SetActive(false);
 
 		// Wait for initial video to finish
 		yield return new WaitForSeconds((float) videoDuration);
 
-
-		// Cutscene - Cursor closing window
 		videoPlayerActive.SetActive(false);
+		titleBar.SetActive(true);
 		videoBG.SetActive(true);
-		cursor.SetActive(true);
 
-		// Wait for cutscene to finish
-		yield return new WaitForSeconds(10);
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+	}
 
-		// Change to Sam's Desktop to continue cutscene
+	public void GoToSamDesktop()
+	{
 		SceneManager.LoadScene("SamDesktop");
 	}
 }

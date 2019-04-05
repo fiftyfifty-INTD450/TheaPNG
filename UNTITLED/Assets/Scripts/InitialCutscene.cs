@@ -1,11 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InitialCutscene : MonoBehaviour
 {
+	public GameObject startMenu;
 
-    void Start()
-    {
-		Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
+	private void Start()
+	{
+		startMenu.SetActive(false);
+	}
+
+	public void OpenStartMenu()
+	{
+		startMenu.SetActive(true);
+	}
+
+	public void GoToLogInScreen()
+	{
+		SceneManager.LoadScene("LoginScreen");
 	}
 }
