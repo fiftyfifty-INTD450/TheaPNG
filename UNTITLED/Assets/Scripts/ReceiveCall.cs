@@ -10,11 +10,14 @@ public class ReceiveCall : MonoBehaviour
 	public AudioClip ringtone;
 	public AudioClip callAudio;
 
+	private IEnumerator phoneCallCoroutine;
+
 	void Update()
 	{
-		if (StoryProgression.Instance.BothPasswordsFound())
+		if (BothPasswordsFound())
 		{
-			StartCoroutine(PhoneRing());
+			phoneCallCoroutine = PhoneRing();
+			StartCoroutine(phoneCallCoroutine);
 		}
 	}
 
@@ -27,7 +30,7 @@ public class ReceiveCall : MonoBehaviour
 		audioPlayer.clip = ringtone;
 		audioPlayer.Play();
 
-		yield return new WaitForSeconds(ringtoneLength - 0.5f);
+		yield return new WaitForSeconds(ringtoneLength - 0.2f);
 
 		Hangup();
 	}
@@ -40,14 +43,13 @@ public class ReceiveCall : MonoBehaviour
 
 	public void PickUp()
 	{
+		StopCoroutine(phoneCallCoroutine);
 		StartCoroutine(Call());
 	}
 
 	private IEnumerator Call()
 	{
 		float callLength = callAudio.length;
-
-		print(callLength);
 
 		receivingCall.SetActive(false);
 		inCall.SetActive(true);
@@ -57,8 +59,6 @@ public class ReceiveCall : MonoBehaviour
 		audioPlayer.Play();
 
 		yield return new WaitForSeconds(callLength + 0.5f);
-
-		print("Ending Call");
 
 		EndCall();
 	}
@@ -80,4 +80,22 @@ public class ReceiveCall : MonoBehaviour
 		StoryProgression.Instance.filePasswordFound = true;
 	}
 
+	public bool BothPasswordsFound()
+	{
+		bool emailPasswordFound = StoryProgression.Instance.emailPasswordFound;
+		bool filePasswordFound = StoryProgression.Instance.filePasswordFound;
+		bool firstCall = StoryProgression.Instance.firstCall;
+
+		if (emailPasswordFound && filePasswordFound && firstCall)
+		{
+			StoryProgression.Instance.firstCall = false;
+
+			StoryProgression.Instance.emailPasswordFound = false;
+			StoryProgression.Instance.filePasswordFound = false;
+
+			return true;
+		}
+
+		return false;
+	}
 }

@@ -15,21 +15,5 @@ public class StoryProgression : MonoBehaviour
 			DontDestroyOnLoad(gameObject);
 			Instance = this;
 		}
-		else if (Instance != this)
-		{
-			Destroy(gameObject);
-		}
-	}
-
-	public bool BothPasswordsFound()
-	{
-		if(emailPasswordFound && filePasswordFound && firstCall)
-		{
-			firstCall = false;
-
-			return true;
-		}
-
-		return false;
 	}
 }
