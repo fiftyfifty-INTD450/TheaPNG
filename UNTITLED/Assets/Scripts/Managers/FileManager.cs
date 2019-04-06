@@ -143,7 +143,7 @@ public class FileManager : MonoBehaviour
                     element.GetComponent<FSEVideo>().Lock();
                 }
             }
-            else if (file.Name.EndsWith(".wav"))
+            else if (file.Name.EndsWith(".wav")) //  || file.Name.EndsWith(".mp3"))
             {
                 element = Instantiate(fseAudio) as GameObject;
                 element.SetActive(true);
