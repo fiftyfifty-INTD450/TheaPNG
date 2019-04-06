@@ -86,7 +86,7 @@ public class FileManager : MonoBehaviour
         foreach (FileInfo file in files)
         {
             GameObject element = null;
-            if (file.Name.EndsWith(".png") || file.Name.EndsWith(".jpg"))
+            if (file.Name.EndsWith(".png") || file.Name.ToLower().EndsWith(".jpg"))
             {
                 element = Instantiate(fseImage) as GameObject;
                 element.SetActive(true);
@@ -169,14 +169,19 @@ public class FileManager : MonoBehaviour
         }
     }
 
+    public void CloseWindows()
+    {
+        imagePanel.SetActive(false);
+        videoPanel.SetActive(false);
+        textfilePanel.SetActive(false);
+        audioPanel.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
-            imagePanel.SetActive(false);
-            videoPanel.SetActive(false);
-            textfilePanel.SetActive(false);
-            audioPanel.SetActive(false);
+            CloseWindows();
         }
 
         if (Input.GetMouseButtonDown(0))

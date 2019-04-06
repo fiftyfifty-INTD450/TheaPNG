@@ -36,7 +36,6 @@ public class AudioPanel : MonoBehaviour
 
     private IEnumerator PlayAudio(string path)
     {
-        AudioType at = AudioType.WAV;
         using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(path, GetAudioType(path)))
         {
             yield return www.SendWebRequest();

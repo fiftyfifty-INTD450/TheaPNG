@@ -36,7 +36,7 @@ public class ImagePanel : MonoBehaviour
 
         if (!panelImage) Debug.Log("FILE ERROR No file at path \"" + path + "\"");
 
-        transform.GetChild(0).GetComponent<Image>().sprite = panelImage;
-        transform.GetChild(0).GetComponent<Image>().preserveAspect = true;
+        transform.GetChild(1).GetComponent<Image>().sprite = panelImage;
+        transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
     }
 }
