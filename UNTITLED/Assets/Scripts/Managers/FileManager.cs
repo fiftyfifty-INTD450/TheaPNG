@@ -20,7 +20,7 @@ public class FileManager : MonoBehaviour
     public AudioClip audioMouseClick;
     public AudioSource audioSource;
 
-    private readonly string basePath = Application.streamingAssetsPath + "/Data/FileSys/Documents";
+    private readonly string basePath = Application.streamingAssetsPath + "/Data/FileSys/";
     private string appendedPath;
 
     void Start()
@@ -92,7 +92,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSEImage>().SetName(file.Name);
-                element.GetComponent<FSEImage>().SetPath(basePath+appendedPath+"/"+file.Name);
+                element.GetComponent<FSEImage>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseImage.transform.parent, false);
 
@@ -111,7 +111,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSETextfile>().SetName(file.Name);
-                element.GetComponent<FSETextfile>().SetPath(basePath + appendedPath + "/" + file.Name);
+                element.GetComponent<FSETextfile>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseTextfile.transform.parent, false);
 
@@ -130,7 +130,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSEVideo>().SetName(file.Name);
-                element.GetComponent<FSEVideo>().SetPath(basePath + appendedPath + "/" + file.Name);
+                element.GetComponent<FSEVideo>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseVideo.transform.parent, false);
 
@@ -149,7 +149,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSEAudio>().SetName(file.Name);
-                element.GetComponent<FSEAudio>().SetPath(basePath + appendedPath + "/" + file.Name);
+                element.GetComponent<FSEAudio>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseAudio.transform.parent, false);
 
@@ -204,7 +204,7 @@ public class FileManager : MonoBehaviour
 
         //Debug.Log("Streaming Assets Path: "+Application.streamingAssetsPath);
 
-        DirectoryInfo d = new DirectoryInfo(basePath + appendedPath);
+        DirectoryInfo d = new DirectoryInfo(basePath + ApplicationModel.GetFileSysHead() + appendedPath);
 
         RefreshFolders(d);
         RefreshFiles(d);
