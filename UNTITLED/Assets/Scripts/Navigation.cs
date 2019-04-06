@@ -23,6 +23,13 @@ public class Navigation : MonoBehaviour
 
     public void GoToFileExplorer()
     {
+        ApplicationModel.SetFileSysHead("Documents");
+        SceneManager.LoadScene("FileExplorer");
+    }
+
+    public void GoToDiary()
+    {
+        ApplicationModel.SetFileSysHead("Diary");
         SceneManager.LoadScene("FileExplorer");
     }
 
