@@ -58,6 +58,10 @@ public class FileManager : MonoBehaviour
         DirectoryInfo[] dirs = d.GetDirectories();
         foreach (DirectoryInfo dir in dirs)
         {
+#if !UNITY_EDITOR
+            if (dir.Name.StartsWith("_")) continue;
+#endif
+
             GameObject element = Instantiate(fseFolder) as GameObject;
             element.SetActive(true);
 
@@ -82,7 +86,7 @@ public class FileManager : MonoBehaviour
         foreach (FileInfo file in files)
         {
             GameObject element = null;
-            if (file.Name.EndsWith(".png") || file.Name.EndsWith(".jpg"))
+            if (file.Name.EndsWith(".png") || file.Name.ToLower().EndsWith(".jpg"))
             {
                 element = Instantiate(fseImage) as GameObject;
                 element.SetActive(true);
@@ -139,7 +143,7 @@ public class FileManager : MonoBehaviour
                     element.GetComponent<FSEVideo>().Lock();
                 }
             }
-            else if (file.Name.EndsWith(".wav"))
+            else if (file.Name.EndsWith(".wav")) //  || file.Name.EndsWith(".mp3"))
             {
                 element = Instantiate(fseAudio) as GameObject;
                 element.SetActive(true);
@@ -165,14 +169,19 @@ public class FileManager : MonoBehaviour
         }
     }
 
+    public void CloseWindows()
+    {
+        imagePanel.SetActive(false);
+        videoPanel.SetActive(false);
+        textfilePanel.SetActive(false);
+        audioPanel.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
-            imagePanel.SetActive(false);
-            videoPanel.SetActive(false);
-            textfilePanel.SetActive(false);
-            audioPanel.SetActive(false);
+            CloseWindows();
         }
 
         if (Input.GetMouseButtonDown(0))
