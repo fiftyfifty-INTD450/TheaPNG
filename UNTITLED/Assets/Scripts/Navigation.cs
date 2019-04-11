@@ -5,6 +5,7 @@ public class Navigation : MonoBehaviour
 {
     public GameObject StartMenu;
     public GameObject QuitConfirm;
+    public GameObject DiaryPass;
 
 	public void GoToInitialVideo()
 	{
@@ -63,6 +64,16 @@ public class Navigation : MonoBehaviour
     public void HideQuitConfirm()
     {
         QuitConfirm.SetActive(false);
+    }
+
+    public void ShowDiaryLockWindow()
+    {
+        DiaryPass.SetActive(true);
+    }
+
+    public void HideDiaryLockWindow()
+    {
+        DiaryPass.SetActive(false);
     }
 
     public void QuitGame()
