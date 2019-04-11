@@ -12,6 +12,7 @@ public class ReceiveCall : MonoBehaviour
 
 	private IEnumerator phoneCallCoroutine;
 
+    /*
 	void Update()
 	{
 		if (BothPasswordsFound())
@@ -19,7 +20,13 @@ public class ReceiveCall : MonoBehaviour
 			phoneCallCoroutine = PhoneRing();
 			StartCoroutine(phoneCallCoroutine);
 		}
-	}
+	}*/
+
+    public void DoPhoneCall()
+    {
+        phoneCallCoroutine = PhoneRing();
+        StartCoroutine(phoneCallCoroutine);
+    }
 
 	private IEnumerator PhoneRing()
 	{
