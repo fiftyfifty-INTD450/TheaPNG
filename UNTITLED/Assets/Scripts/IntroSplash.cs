@@ -21,7 +21,7 @@ public class IntroSplash : MonoBehaviour
 		// Initial Warning
 		GetComponent<TextFade>().TextFadeIn(warningText);
 
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(2);
 
 		// Continue Prompt
 		GetComponent<TextFade>().TextFadeIn(continueText);
@@ -41,7 +41,7 @@ public class IntroSplash : MonoBehaviour
 		// Need help Prompt
 		GetComponent<TextFade>().TextFadeIn(helpText);
 
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(2);
 
 		// Phone numbers Prompt
 		GetComponent<TextFade>().TextFadeIn(phoneText);
@@ -61,10 +61,10 @@ public class IntroSplash : MonoBehaviour
 		GetComponent<TextFade>().TextFadeOut(phoneText);
 		GetComponent<TextFade>().TextFadeOut(continueText);
 
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1.5f);
 
 		// Show logo
-		SceneManager.LoadScene("LogoSplash");
+		SceneManager.LoadScene("SplashLogo");
 
 	}
 }

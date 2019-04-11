@@ -15,15 +15,18 @@ public class InitialVideo : MonoBehaviour
 	public GameObject videoBG;
 	public GameObject videoPlayerActive;
 
+	public GameObject taskbar;
+
     void Start()
     {
 		double videoDuration = introVideo.length;
 		StartCoroutine(WaitAndLoad(videoDuration));
 
 		titleBar.SetActive(false);
+		taskbar.SetActive(false);
 		videoBG.SetActive(false);
-		videoPlayerActive.SetActive(true);
 
+		videoPlayerActive.SetActive(true);
 		videoPlayer.clip = introVideo;
 	}
 
@@ -48,9 +51,13 @@ public class InitialVideo : MonoBehaviour
 		// Wait for initial video to finish
 		yield return new WaitForSeconds((float) videoDuration);
 
+		taskbar.SetActive(true);
+
 		videoPlayer.Stop();
 		videoPlayer.clip = introCutscene;
 		videoPlayer.Play();
+
+		StartCoroutine(WaitAndRemoveTaskbar());
 
 		yield return new WaitForSeconds((float) introCutscene.length);
 
@@ -58,6 +65,13 @@ public class InitialVideo : MonoBehaviour
 		Cursor.visible = true;
 
 		SceneManager.LoadScene("TheaDesktop");
+	}
+
+	private IEnumerator WaitAndRemoveTaskbar()
+	{
+		yield return new WaitForSeconds(4.5f);
+
+		taskbar.SetActive(false);
 	}
 
 	public void GoToSamDesktop()
