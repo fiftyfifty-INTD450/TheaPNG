@@ -4838,7 +4838,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 266691651}
-        m_MethodName: GoToInternet
+        m_MethodName: GoToEmail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
