@@ -4635,6 +4635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMouseClick: {fileID: 8300000, guid: 36224cabf91ddc241954e873c19d93e9, type: 3}
+  passwordJingle: {fileID: 0}
 --- !u!1 &1836279409
 GameObject:
   m_ObjectHideFlags: 0
