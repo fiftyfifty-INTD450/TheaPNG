@@ -197,6 +197,10 @@ public class MessagingApp : MonoBehaviour
 				// Something wrong with the message files
 				print("Error in data formatting.");
 			}
+
+			// Scroll to the top
+			RectTransform messageContent = messagePanel.GetComponent<RectTransform>();
+			messageContent.localPosition = new Vector3(0, 0, 0);
 		}
 	}
 

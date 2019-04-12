@@ -15,15 +15,20 @@ public class LoginScreen : MonoBehaviour
 	public Text hintPromt;
 	public Text hint;
 
+	public AudioSource audioPlayer;
+	public AudioClip loginSound;
+
 	private int tries;
 
 	private void Start()
 	{
-		userPrompt.SetActive(true);
-		loginPrompt.SetActive(false);
-		loginSplash.SetActive(false);
+		//userPrompt.SetActive(true);
+		//loginPrompt.SetActive(false);
+		//loginSplash.SetActive(false);
 
-		tries = 0;
+		//tries = 0;
+
+		Login();
 	}
 
 	public void LogInThea()
@@ -62,7 +67,15 @@ public class LoginScreen : MonoBehaviour
 
 	private IEnumerator LoginTimer()
 	{
+		yield return new WaitForSeconds(1.0f);
+
+		audioPlayer.clip = loginSound;
+		audioPlayer.Play();
+
 		yield return new WaitForSeconds(2.0f);
+
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 
 		SceneManager.LoadScene("TheaDesktop");
 	}
