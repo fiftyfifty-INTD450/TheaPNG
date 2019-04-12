@@ -61,10 +61,7 @@ public class InitialVideo : MonoBehaviour
 
 		yield return new WaitForSeconds((float) introCutscene.length);
 
-		Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
-
-		SceneManager.LoadScene("TheaDesktop");
+		SceneManager.LoadScene("LoginScreen");
 	}
 
 	private IEnumerator WaitAndRemoveTaskbar()
@@ -74,8 +71,8 @@ public class InitialVideo : MonoBehaviour
 		taskbar.SetActive(false);
 	}
 
-	public void GoToSamDesktop()
-	{
-		SceneManager.LoadScene("SamDesktop");
-	}
+	//public void GoToSamDesktop()
+	//{
+	//	SceneManager.LoadScene("SamDesktop");
+	//}
 }

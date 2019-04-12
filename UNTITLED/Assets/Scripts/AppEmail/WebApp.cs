@@ -21,6 +21,7 @@ public class WebApp : MonoBehaviour
 	public TextAsset hatton2;
 	public TextAsset beddit4;
 	public TextAsset econ;
+	//public TextAsset asdf;
 	public TextAsset draft1;
 	public TextAsset draft2;
 
@@ -47,6 +48,7 @@ public class WebApp : MonoBehaviour
 
 
 	private List<TextAsset> emails = new List<TextAsset>();
+	private List<TextAsset> drafts = new List<TextAsset>();
 
 	void Start()
 	{
@@ -69,13 +71,44 @@ public class WebApp : MonoBehaviour
 		emails.Add(hatton2);
 		emails.Add(beddit4);
 		emails.Add(econ);
-		emails.Add(draft1);
-		emails.Add(draft2);
+		//emails.Add(asdf);
 
+		drafts.Add(draft1);
+		drafts.Add(draft2);
+
+		ShowInboxEmails();
+	}
+
+	private void ShowInboxEmails()
+	{
 		for (int i = 0; i < emails.Count; i++)
 		{
 			// Get data from file
 			string fileData = emails[i].text;
+
+			// Split file into lines and remove new line characters (Only first 2 lines)
+			string[] lines = fileData.Split('\n');
+			for (int j = 0; j < 2; j++)
+			{
+				lines[j] = RemoveNewLineChar(lines[j]);
+			}
+
+			// Get a button and assign it to scroll list
+			GameObject newButton = buttonObjectPool.GetObject();
+			newButton.transform.SetParent(emailsPanel);
+
+			// Update button with email subject and date
+			EmailButton emailButton = newButton.GetComponent<EmailButton>();
+			emailButton.Setup(lines[0], lines[1], this);
+		}
+	}
+
+	private void ShowDraftEmails()
+	{
+		for (int i = 0; i < drafts.Count; i++)
+		{
+			// Get data from file
+			string fileData = drafts[i].text;
 
 			// Split file into lines and remove new line characters (Only first 2 lines)
 			string[] lines = fileData.Split('\n');
@@ -110,23 +143,51 @@ public class WebApp : MonoBehaviour
 		string emailContent = "";
 
 		// Find matching data file
-		for (int i = 0; i < emails.Count; i++)
+		if (inboxType.text == "Inbox")
 		{
-			// Get data from file
-			string fileData = emails[i].text;
-
-			// Split file into lines and remove new line characters (Only first 2 lines)
-			string[] lines = fileData.Split('\n');
-			for (int j = 0; j < 2; j++)
+			for (int i = 0; i < emails.Count; i++)
 			{
-				lines[j] = RemoveNewLineChar(lines[j]);
-			}
+				// Get data from file
+				string fileData = emails[i].text;
 
-			if (lines[0] == subject && lines[1] == date)
-			{
-				emailContent = fileData;
-				break;
+				// Split file into lines and remove new line characters (Only first 2 lines)
+				string[] lines = fileData.Split('\n');
+				for (int j = 0; j < 2; j++)
+				{
+					lines[j] = RemoveNewLineChar(lines[j]);
+				}
+
+				if (lines[0] == subject && lines[1] == date)
+				{
+					emailContent = fileData;
+					break;
+				}
 			}
+		}
+		else if (inboxType.text == "Draft")
+		{
+			for (int i = 0; i < drafts.Count; i++)
+			{
+				// Get data from file
+				string fileData = drafts[i].text;
+
+				// Split file into lines and remove new line characters (Only first 2 lines)
+				string[] lines = fileData.Split('\n');
+				for (int j = 0; j < 2; j++)
+				{
+					lines[j] = RemoveNewLineChar(lines[j]);
+				}
+
+				if (lines[0] == subject && lines[1] == date)
+				{
+					emailContent = fileData;
+					break;
+				}
+			}
+		}
+		else
+		{
+			print("This should not happen.");
 		}
 
 		// Parse Data
@@ -219,10 +280,22 @@ public class WebApp : MonoBehaviour
 	public void ShowInbox()
 	{
 		inboxType.text = "Inbox";
+		ClearEmails();
+		ShowInboxEmails();
 	}
 
 	public void ShowDraft()
 	{
 		inboxType.text = "Draft";
+		ClearEmails();
+		ShowDraftEmails();
+	}
+
+	public void ClearEmails()
+	{
+		foreach (Transform child in emailsPanel)
+		{
+			Destroy(child.gameObject);
+		}
 	}
 }

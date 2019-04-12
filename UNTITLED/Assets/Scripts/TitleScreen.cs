@@ -7,8 +7,17 @@ public class TitleScreen : MonoBehaviour
 	public GameObject extraHelpInfo;
 	public GameObject creditContent;
 
+	public RectTransform logo;
+
+	private void Update()
+	{
+		logo.Rotate(0, 0, -25 * Time.deltaTime);
+	}
+
 	public void PlayGame()
 	{
+		StopAllCoroutines();
+
 		SceneManager.LoadScene("InitialVideo");
 	}
 
@@ -26,8 +35,10 @@ public class TitleScreen : MonoBehaviour
 
 	public void ShowCredits()
 	{
-		mainContent.SetActive(false);
-		creditContent.SetActive(true);
+		//mainContent.SetActive(false);
+		//creditContent.SetActive(true);
+
+		SceneManager.LoadScene("Credits");
 	}
 
 	public void HideCredits()
