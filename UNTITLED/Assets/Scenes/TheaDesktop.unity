@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 266691650}
   - component: {fileID: 266691651}
   - component: {fileID: 266691652}
+  - component: {fileID: 266691649}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -930,6 +931,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &266691649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266691648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0f7b0bd92337d4a8334094a0daa916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMouseClick: {fileID: 8300000, guid: 36224cabf91ddc241954e873c19d93e9, type: 3}
 --- !u!4 &266691650
 Transform:
   m_ObjectHideFlags: 0
