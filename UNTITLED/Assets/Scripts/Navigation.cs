@@ -34,14 +34,14 @@ public class Navigation : MonoBehaviour
         SceneManager.LoadScene("FileExplorer");
     }
 
-	public void GoToInternet()
+	public void GoToEmail()
 	{
-		SceneManager.LoadScene("WebApp");
+		SceneManager.LoadScene("AppEmail");
 	}
 
 	public void GoToMessaging()
 	{
-		SceneManager.LoadScene("ChatApp");
+		SceneManager.LoadScene("AppMessaging");
 	}
 
     public void ToggleStartMenu()
