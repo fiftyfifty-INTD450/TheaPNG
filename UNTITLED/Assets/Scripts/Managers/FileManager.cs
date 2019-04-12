@@ -66,6 +66,7 @@ public class FileManager : MonoBehaviour
             element.SetActive(true);
 
             element.GetComponent<FSEFolder>().SetName(dir.Name);
+            element.GetComponent<FSEFolder>().SetPath(dir.FullName);
 
             element.transform.SetParent(fseFolder.transform.parent, false);
 
