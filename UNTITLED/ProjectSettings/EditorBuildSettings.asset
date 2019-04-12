@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AppEmail.unity
     guid: 9b6186d29c1873f45bf599ade4c42087
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 5da50879979a267438b5ea3dfcb52457
   m_configObjects: {}

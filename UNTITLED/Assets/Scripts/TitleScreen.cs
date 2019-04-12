@@ -26,8 +26,10 @@ public class TitleScreen : MonoBehaviour
 
 	public void ShowCredits()
 	{
-		mainContent.SetActive(false);
-		creditContent.SetActive(true);
+		//mainContent.SetActive(false);
+		//creditContent.SetActive(true);
+
+		SceneManager.LoadScene("Credits");
 	}
 
 	public void HideCredits()
