@@ -27,6 +27,7 @@ public class EmailLock : MonoBehaviour
         {
             lockIcon.SetActive(false);
         }
+        DisplayHint();
     }
 
     public void TryOpenEmail()
