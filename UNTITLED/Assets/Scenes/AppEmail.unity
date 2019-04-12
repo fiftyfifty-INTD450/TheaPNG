@@ -235,6 +235,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42267663}
   m_CullTransparentMesh: 0
+--- !u!1 &44896311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 44896312}
+  - component: {fileID: 44896314}
+  - component: {fileID: 44896313}
+  m_Layer: 5
+  m_Name: EasterImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &44896312
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44896311}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1516576493}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 181.02798, y: -522.5}
+  m_SizeDelta: {x: 342.05597, y: 425}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &44896313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44896311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: b6f470cac9bff3748878530bf1edd23a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &44896314
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44896311}
+  m_CullTransparentMesh: 0
 --- !u!1 &59190859
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +691,7 @@ GameObject:
   - component: {fileID: 108398595}
   - component: {fileID: 108398594}
   m_Layer: 5
-  m_Name: SubjectText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,8 +982,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553903836}
   m_HandleRect: {fileID: 553903835}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.26352125
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1190,7 +1264,7 @@ GameObject:
   - component: {fileID: 413788016}
   - component: {fileID: 413788015}
   m_Layer: 5
-  m_Name: EmailContentText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,7 +1386,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -1417,7 +1491,7 @@ GameObject:
   - component: {fileID: 569978620}
   - component: {fileID: 569978619}
   m_Layer: 5
-  m_Name: DateText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1496,7 +1570,7 @@ GameObject:
   - component: {fileID: 571897227}
   - component: {fileID: 571897226}
   m_Layer: 5
-  m_Name: CCText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2089,7 +2163,7 @@ GameObject:
   - component: {fileID: 988113050}
   - component: {fileID: 988113049}
   m_Layer: 5
-  m_Name: CCBG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2842,6 +2916,87 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1252017677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252017678}
+  - component: {fileID: 1252017680}
+  - component: {fileID: 1252017679}
+  m_Layer: 5
+  m_Name: Beddit Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1252017678
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252017677}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2082029712}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 171.02798, y: -56}
+  m_SizeDelta: {x: 332.05597, y: 68}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1252017679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252017677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 15
+    m_FontStyle: 2
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: To unsubscribe from Beddit, login to your account, go to settings and answer
+    your security questions. Then under advanced settings, select opt-out from all
+    emails.
+--- !u!222 &1252017680
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252017677}
+  m_CullTransparentMesh: 0
 --- !u!1 &1278938244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,6 +3560,8 @@ RectTransform:
   - {fileID: 1334956157}
   - {fileID: 1668452852}
   - {fileID: 1743961218}
+  - {fileID: 44896312}
+  - {fileID: 1542407460}
   m_Father: {fileID: 1708890515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3549,6 +3706,80 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
+--- !u!1 &1542407459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542407460}
+  - component: {fileID: 1542407462}
+  - component: {fileID: 1542407461}
+  m_Layer: 5
+  m_Name: LaborDayImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1542407460
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542407459}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1516576493}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 147.5, y: -401.5}
+  m_SizeDelta: {x: 275, y: 183}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1542407461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542407459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bbf9f398dfe19e543bbea64c3b405db3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1542407462
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542407459}
+  m_CullTransparentMesh: 0
 --- !u!1 &1560438508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,7 +3794,7 @@ GameObject:
   - component: {fileID: 1560438511}
   - component: {fileID: 1560438510}
   m_Layer: 5
-  m_Name: DateBG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3794,7 +4025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1668452852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3809,10 +4040,10 @@ RectTransform:
   m_Father: {fileID: 1516576493}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 179.91049, y: -733}
+  m_SizeDelta: {x: 339.82098, y: 846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1668452853
 MonoBehaviour:
@@ -4072,7 +4303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1743961218
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4087,10 +4318,10 @@ RectTransform:
   m_Father: {fileID: 1516576493}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 181.02798, y: -733}
+  m_SizeDelta: {x: 342.05597, y: 846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743961219
 MonoBehaviour:
@@ -4360,16 +4591,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0960ea14e058642a6d88bf5b52c2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rhoderaBusiness1: {fileID: 4900000, guid: 6a419b8fb2a863146ab476685689c81b, type: 3}
-  rhoderaBusiness2: {fileID: 4900000, guid: 4b76cb7f4f870324bb7b3cad6fdc8ae2, type: 3}
-  galaxyInvestments1: {fileID: 4900000, guid: f9fc6f4b0ce485242817b82f0e36c29c, type: 3}
-  galaxyInvestments2: {fileID: 4900000, guid: 3f8fc08e2aa925a4381a38cd1688ea11, type: 3}
-  mainEmail1: {fileID: 4900000, guid: 83d436a02da834b4098157759495d50d, type: 3}
-  mainEmail2: {fileID: 4900000, guid: 2d82378e75b6f9149a642765b92c0f77, type: 3}
-  eastEndBar1: {fileID: 4900000, guid: 7d91e13baabb7dc44bd6bcfa18529451, type: 3}
-  eastEndBar2: {fileID: 4900000, guid: 1e410fdb62f4b5f4e80970d17f023f5a, type: 3}
-  ECONPerformance: {fileID: 4900000, guid: d1007e3d10d12ab4581d56fc89b0259c, type: 3}
-  coverLetter: {fileID: 4900000, guid: a635ec18a3b2f5f44b958af8063d7551, type: 3}
+  prescriptionRefill: {fileID: 4900000, guid: a8e55fdd69fc5364286b1dd606f485e0, type: 3}
+  easter: {fileID: 4900000, guid: a544d1c213d11bd4f9e1ee4caa18affd, type: 3}
+  eastEndBar: {fileID: 4900000, guid: d9cad34aad2b9fb49b85cb084611e027, type: 3}
+  churchill1: {fileID: 4900000, guid: 6113aa47be2a4fa488e3deeb1cdba115, type: 3}
+  churchill2: {fileID: 4900000, guid: df4eed93b0b2d494aaa5c37ae2202fe4, type: 3}
+  beddit1: {fileID: 4900000, guid: dfddb01eb33afea42836dcad11273e97, type: 3}
+  rhoderaBusiness1: {fileID: 4900000, guid: 19bdf023e6d70b248bcd6a4f930182f1, type: 3}
+  rhoderaBusiness2: {fileID: 4900000, guid: 61d1fdc83469b6c48894966d1b1f499c, type: 3}
+  beddit2: {fileID: 4900000, guid: 9e0ed0a439737384d8c00aba0c295097, type: 3}
+  laborDay: {fileID: 4900000, guid: 60b28a543f758564d8a68c61b0cf5d0b, type: 3}
+  galaxyInvestments1: {fileID: 4900000, guid: 20739a868de076845b862b1e1d0efb6f, type: 3}
+  beddit3: {fileID: 4900000, guid: 89b37ef638d299942bc61a6db39877b1, type: 3}
+  hatton1: {fileID: 4900000, guid: 3f7d7fafdbe00cd4cba18d4e993058ef, type: 3}
+  hatton2: {fileID: 4900000, guid: 7e2600cb569c9234d9f82150b0a15b85, type: 3}
+  beddit4: {fileID: 4900000, guid: b51c2bb1aa62f954d87f2a17450add13, type: 3}
+  econ: {fileID: 4900000, guid: 108b281638f762e4bbfa5ac8232084e1, type: 3}
+  draft1: {fileID: 4900000, guid: 3f985089bc3447548a17c6dc80918214, type: 3}
+  draft2: {fileID: 4900000, guid: c2dd592ef3bb1d34aa61e5dad89ed9cd, type: 3}
   emailsPanel: {fileID: 484338454}
   emailContentPanel: {fileID: 2144512068}
   emailSubjectText: {fileID: 108398594}
@@ -4377,9 +4616,13 @@ MonoBehaviour:
   emailCCText: {fileID: 571897226}
   emailDateText: {fileID: 569978619}
   emailContentText: {fileID: 413788015}
+  bedditUnsubText: {fileID: 1252017677}
   resume1: {fileID: 1668452853}
   resume2: {fileID: 1743961219}
+  easterImage: {fileID: 44896313}
+  laborDayImage: {fileID: 1542407461}
   buttonObjectPool: {fileID: 1981814914}
+  inboxType: {fileID: 279554356}
 --- !u!1 &1836279409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,7 +4801,7 @@ GameObject:
   - component: {fileID: 1905699759}
   - component: {fileID: 1905699758}
   m_Layer: 5
-  m_Name: FromBG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4920,7 +5163,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1976756590}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1826479567}
+        m_MethodName: ShowInbox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1976756590
@@ -5032,7 +5286,7 @@ GameObject:
   - component: {fileID: 2000276035}
   - component: {fileID: 2000276034}
   m_Layer: 5
-  m_Name: FromText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5113,7 +5367,7 @@ GameObject:
   - component: {fileID: 2082029714}
   - component: {fileID: 2082029713}
   m_Layer: 5
-  m_Name: EmailContentBG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5131,6 +5385,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413788014}
+  - {fileID: 1252017678}
   m_Father: {fileID: 1334956157}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5370,7 +5625,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2130982824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1826479567}
+        m_MethodName: ShowDraft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2130982824
@@ -5634,7 +5900,7 @@ GameObject:
   - component: {fileID: 6025501976585485299}
   - component: {fileID: 6025501976585485296}
   m_Layer: 5
-  m_Name: SubjectBG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,16 +5,24 @@ using System.Collections.Generic;
 public class WebApp : MonoBehaviour
 {
 	// Add email data here
+	public TextAsset prescriptionRefill;
+	public TextAsset easter;
+	public TextAsset eastEndBar;
+	public TextAsset churchill1;
+	public TextAsset churchill2;
+	public TextAsset beddit1;
 	public TextAsset rhoderaBusiness1;
 	public TextAsset rhoderaBusiness2;
+	public TextAsset beddit2;
+	public TextAsset laborDay;
 	public TextAsset galaxyInvestments1;
-	public TextAsset galaxyInvestments2;
-	public TextAsset mainEmail1;
-	public TextAsset mainEmail2;
-	public TextAsset eastEndBar1;
-	public TextAsset eastEndBar2;
-	public TextAsset ECONPerformance;
-	public TextAsset coverLetter;
+	public TextAsset beddit3;
+	public TextAsset hatton1;
+	public TextAsset hatton2;
+	public TextAsset beddit4;
+	public TextAsset econ;
+	public TextAsset draft1;
+	public TextAsset draft2;
 
 	// List of Emails
 	public Transform emailsPanel;
@@ -26,11 +34,17 @@ public class WebApp : MonoBehaviour
 	public Text emailCCText;
 	public Text emailDateText;
 	public Text emailContentText;
+
+	public GameObject bedditUnsubText;
 	public Image resume1;
 	public Image resume2;
-
+	public Image easterImage;
+	public Image laborDayImage;
 
 	public ObjectPool buttonObjectPool;
+
+	public Text inboxType;
+
 
 	private List<TextAsset> emails = new List<TextAsset>();
 
@@ -39,16 +53,24 @@ public class WebApp : MonoBehaviour
 		emailContentPanel.SetActive(false);
 
 		// Manually order and add all emails here 
+		emails.Add(prescriptionRefill);
+		emails.Add(easter);
+		emails.Add(eastEndBar);
+		emails.Add(churchill1);
+		emails.Add(churchill2);
+		emails.Add(beddit1);
 		emails.Add(rhoderaBusiness1);
 		emails.Add(rhoderaBusiness2);
+		emails.Add(beddit2);
+		emails.Add(laborDay);
 		emails.Add(galaxyInvestments1);
-		emails.Add(galaxyInvestments2);
-		emails.Add(mainEmail1);
-		emails.Add(mainEmail2);
-		emails.Add(eastEndBar1);
-		emails.Add(eastEndBar2);
-		emails.Add(ECONPerformance);
-		emails.Add(coverLetter);
+		emails.Add(beddit3);
+		emails.Add(hatton1);
+		emails.Add(hatton2);
+		emails.Add(beddit4);
+		emails.Add(econ);
+		emails.Add(draft1);
+		emails.Add(draft2);
 
 		for (int i = 0; i < emails.Count; i++)
 		{
@@ -78,7 +100,7 @@ public class WebApp : MonoBehaviour
 
 		retString = retString.Replace("\n", "");
 		retString = retString.Replace("\r", "");
-		retString = retString.Replace("\t", "");
+		//retString = retString.Replace("\t", "");
 
 		return retString;
 	}
@@ -148,7 +170,8 @@ public class WebApp : MonoBehaviour
 			emailContentText.text = emailContents;
 
 			// Attach Resume
-			if(lines[0] == "(Draft) Cover Letter")
+			print(lines[0]);
+			if(lines[0] == "[Draft] Internship Cover Letter")
 			{
 				resume1.enabled = true;
 				resume2.enabled = true;
@@ -161,5 +184,15 @@ public class WebApp : MonoBehaviour
 				resume2.enabled = false;
 			}
 		}
+	}
+
+	public void ShowInbox()
+	{
+		inboxType.text = "Inbox";
+	}
+
+	public void ShowDraft()
+	{
+		inboxType.text = "Draft";
 	}
 }
