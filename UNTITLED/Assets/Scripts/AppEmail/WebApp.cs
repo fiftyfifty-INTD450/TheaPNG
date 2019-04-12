@@ -36,10 +36,10 @@ public class WebApp : MonoBehaviour
 	public Text emailContentText;
 
 	public GameObject bedditUnsubText;
-	public Image resume1;
-	public Image resume2;
-	public Image easterImage;
-	public Image laborDayImage;
+	public GameObject resume1;
+	public GameObject resume2;
+	public GameObject easterImage;
+	public GameObject laborDayImage;
 
 	public ObjectPool buttonObjectPool;
 
@@ -130,7 +130,7 @@ public class WebApp : MonoBehaviour
 		}
 
 		// Parse Data
-		if(emailContent == "")
+		if (emailContent == "")
 		{
 			print("This should not happen!");
 		}
@@ -149,9 +149,10 @@ public class WebApp : MonoBehaviour
 			emailFromText.text = "From: " + lines[2];
 			emailCCText.text = "CC: " + lines[3];
 
+			// Main Body Contents
 			string emailContents = "";
 
-			for(int i = 4; i < lines.Length; i++)
+			for (int i = 4; i < lines.Length; i++)
 			{
 				string temp;
 
@@ -169,19 +170,48 @@ public class WebApp : MonoBehaviour
 
 			emailContentText.text = emailContents;
 
-			// Attach Resume
-			print(lines[0]);
-			if(lines[0] == "[Draft] Internship Cover Letter")
+			
+			if (lines[0].Contains("Beddit"))
 			{
-				resume1.enabled = true;
-				resume2.enabled = true;
+				bedditUnsubText.SetActive(true);
+				easterImage.SetActive(false);
+				laborDayImage.SetActive(false);
+				resume1.SetActive(false);
+				resume2.SetActive(false);
+			}
+			else if (lines[0] == "Easter Day Email!")
+			{
+				bedditUnsubText.SetActive(false);
+				easterImage.SetActive(true);
+				laborDayImage.SetActive(false);
+				resume1.SetActive(false);
+				resume2.SetActive(false);
+			}
+			else if (lines[0] == "Happy Labour Day!")
+			{
+				bedditUnsubText.SetActive(false);
+				easterImage.SetActive(false);
+				laborDayImage.SetActive(true);
+				resume1.SetActive(false);
+				resume2.SetActive(false);
+			}
+			else if (lines[0] == "[Draft] Internship Cover Letter")
+			{
+				bedditUnsubText.SetActive(false);
+				easterImage.SetActive(false);
+				laborDayImage.SetActive(false);
+				resume1.SetActive(true);
+				resume2.SetActive(true);
 
 				emailFromText.text = "To: ";
 			}
 			else
 			{
-				resume1.enabled = false;
-				resume2.enabled = false;
+				bedditUnsubText.SetActive(false);
+				easterImage.SetActive(false);
+				laborDayImage.SetActive(false);
+				resume1.SetActive(false);
+				resume2.SetActive(false);
 			}
 		}
 	}

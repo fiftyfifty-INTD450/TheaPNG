@@ -264,12 +264,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1516576493}
-  m_RootOrder: 7
+  m_Father: {fileID: 2082029712}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 181.02798, y: -522.5}
+  m_AnchoredPosition: {x: 171.02798, y: -342.5}
   m_SizeDelta: {x: 342.05597, y: 425}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &44896313
@@ -2986,9 +2986,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: To unsubscribe from Beddit, login to your account, go to settings and answer
-    your security questions. Then under advanced settings, select opt-out from all
-    emails.
+  m_Text: '
+
+
+    To unsubscribe from Beddit, login to your account, go to settings and answer your
+    security questions. Then under advanced settings, select opt-out from all emails.'
 --- !u!222 &1252017680
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3558,10 +3560,6 @@ RectTransform:
   - {fileID: 1160170846}
   - {fileID: 1517484135}
   - {fileID: 1334956157}
-  - {fileID: 1668452852}
-  - {fileID: 1743961218}
-  - {fileID: 44896312}
-  - {fileID: 1542407460}
   m_Father: {fileID: 1708890515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3735,12 +3733,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1516576493}
-  m_RootOrder: 8
+  m_Father: {fileID: 2082029712}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 147.5, y: -401.5}
+  m_AnchoredPosition: {x: 137.5, y: -221.5}
   m_SizeDelta: {x: 275, y: 183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542407461
@@ -4033,16 +4031,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668452851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1516576493}
-  m_RootOrder: 5
+  m_Father: {fileID: 2082029712}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 179.91049, y: -733}
+  m_AnchoredPosition: {x: 169.91049, y: -553}
   m_SizeDelta: {x: 339.82098, y: 846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1668452853
@@ -4311,16 +4309,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743961217}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1516576493}
-  m_RootOrder: 6
+  m_Father: {fileID: 2082029712}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 181.02798, y: -733}
+  m_AnchoredPosition: {x: 171.02798, y: -553}
   m_SizeDelta: {x: 342.05597, y: 846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743961219
@@ -4543,6 +4541,7 @@ GameObject:
   - component: {fileID: 1826479566}
   - component: {fileID: 1826479565}
   - component: {fileID: 1826479567}
+  - component: {fileID: 1826479568}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -4617,12 +4616,25 @@ MonoBehaviour:
   emailDateText: {fileID: 569978619}
   emailContentText: {fileID: 413788015}
   bedditUnsubText: {fileID: 1252017677}
-  resume1: {fileID: 1668452853}
-  resume2: {fileID: 1743961219}
-  easterImage: {fileID: 44896313}
-  laborDayImage: {fileID: 1542407461}
+  resume1: {fileID: 1668452851}
+  resume2: {fileID: 1743961217}
+  easterImage: {fileID: 44896311}
+  laborDayImage: {fileID: 1542407459}
   buttonObjectPool: {fileID: 1981814914}
   inboxType: {fileID: 279554356}
+--- !u!114 &1826479568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826479564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0f7b0bd92337d4a8334094a0daa916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMouseClick: {fileID: 8300000, guid: 36224cabf91ddc241954e873c19d93e9, type: 3}
 --- !u!1 &1836279409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,6 +5398,10 @@ RectTransform:
   m_Children:
   - {fileID: 413788014}
   - {fileID: 1252017678}
+  - {fileID: 1668452852}
+  - {fileID: 1743961218}
+  - {fileID: 44896312}
+  - {fileID: 1542407460}
   m_Father: {fileID: 1334956157}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
