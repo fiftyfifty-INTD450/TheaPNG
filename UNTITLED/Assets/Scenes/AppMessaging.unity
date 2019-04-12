@@ -4070,6 +4070,7 @@ GameObject:
   - component: {fileID: 1826479566}
   - component: {fileID: 1826479565}
   - component: {fileID: 1826479567}
+  - component: {fileID: 1826479568}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -4091,6 +4092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartMenu: {fileID: 0}
   QuitConfirm: {fileID: 0}
+  DiaryPass: {fileID: 0}
 --- !u!4 &1826479566
 Transform:
   m_ObjectHideFlags: 0
@@ -4138,6 +4140,19 @@ MonoBehaviour:
     type: 3}
   messagesWindow: {fileID: 1901410403}
   messagesWindowTitle: {fileID: 1645473984}
+--- !u!114 &1826479568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826479564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0f7b0bd92337d4a8334094a0daa916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMouseClick: {fileID: 8300000, guid: 36224cabf91ddc241954e873c19d93e9, type: 3}
 --- !u!1 &1901410403
 GameObject:
   m_ObjectHideFlags: 0
