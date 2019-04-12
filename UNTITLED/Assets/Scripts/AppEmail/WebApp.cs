@@ -21,6 +21,7 @@ public class WebApp : MonoBehaviour
 	public TextAsset hatton2;
 	public TextAsset beddit4;
 	public TextAsset econ;
+	//public TextAsset asdf;
 	public TextAsset draft1;
 	public TextAsset draft2;
 
@@ -70,6 +71,7 @@ public class WebApp : MonoBehaviour
 		emails.Add(hatton2);
 		emails.Add(beddit4);
 		emails.Add(econ);
+		//emails.Add(asdf);
 
 		drafts.Add(draft1);
 		drafts.Add(draft2);
