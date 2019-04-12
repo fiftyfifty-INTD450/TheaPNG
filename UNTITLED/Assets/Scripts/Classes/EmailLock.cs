@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +33,7 @@ public class EmailLock : MonoBehaviour
     {
         if (ApplicationModel.emailUnlocked)
         {
-            gameManager.GetComponent<Navigation>().GoToInternet();
+            gameManager.GetComponent<Navigation>().GoToEmail();
         }
         else
         {
