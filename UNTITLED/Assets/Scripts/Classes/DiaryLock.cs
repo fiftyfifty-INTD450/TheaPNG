@@ -41,6 +41,14 @@ public class DiaryLock : MonoBehaviour
         return prog;
     }
 
+    public void Update()
+    {
+        if ((Pass1Input.text != "" || Pass2Input.text != "" || Pass3Input.text != "") && Input.GetKey(KeyCode.Return))
+        {
+            CheckPasswords();
+        }
+    }
+
     public void TryOpenDiary()
     {
         if (GetProgressionLevel() == 3)
@@ -83,6 +91,8 @@ public class DiaryLock : MonoBehaviour
             hint3.SetActive(false);
         }
 
+        Clear();
+
         if (GetProgressionLevel() == 3)
         {
             lockIcon.SetActive(false);
@@ -94,5 +104,12 @@ public class DiaryLock : MonoBehaviour
             GameManager.GetComponent<Navigation>().HideDiaryLockWindow();
             GameManager.GetComponent<ReceiveCall>().DoPhoneCall();
         }
+    }
+
+    private void Clear()
+    {
+        if (!ApplicationModel.Path1Complete) Pass1Input.text = "";
+        if (!ApplicationModel.Path2Complete) Pass2Input.text = "";
+        if (!ApplicationModel.Path3Complete) Pass3Input.text = "";
     }
 }

@@ -10,6 +10,8 @@ public abstract class FileSysElement : MonoBehaviour
     protected FSPasswordInfo password;
     protected bool locked = false;
 
+    public GameObject lockIcon;
+
     public abstract void Open();
 
     public void SetIcon(Sprite sprite)
@@ -24,12 +26,17 @@ public abstract class FileSysElement : MonoBehaviour
 
     public void Lock()
     {
+        if (ApplicationModel.HasBeenUnlocked(path)) return; // File was unlocked previously
+
         locked = true;
+        lockIcon.SetActive(true);
     }
 
     public void Unlock()
     {
         locked = false;
+        lockIcon.SetActive(false);
+        ApplicationModel.RegisterUnlockedFile(path);
     }
 
     public void SetName(string name)
