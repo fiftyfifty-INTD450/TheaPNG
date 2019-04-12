@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class MessagingApp : MonoBehaviour
 {
@@ -9,10 +9,11 @@ public class MessagingApp : MonoBehaviour
 	public TextAsset contactData;
 
 	// Contains all messages for each contact
-	public TextAsset grungeNRock;
-	public TextAsset hilary;
-	public TextAsset abigail;
 	public TextAsset dad;
+	public TextAsset dakota;
+	public TextAsset hilary;
+	public TextAsset jasmine;
+	public TextAsset sam;
 
 	public Transform contactsPanel;
 	public Transform messagePanel;
@@ -24,10 +25,16 @@ public class MessagingApp : MonoBehaviour
 	public GameObject InboundDeletedPrefab;
 	public GameObject OutboundDeletedPrefab;
 
+	public GameObject messagesWindow;
+	public Text messagesWindowTitle;
+
 	private string[] contacts;
 
 	void Start()
 	{
+		messagesWindow.SetActive(false);
+		messagesWindowTitle.text = "";
+
 		// Load all contacts
 		contacts = contactData.text.Split('\n');
 
@@ -89,6 +96,9 @@ public class MessagingApp : MonoBehaviour
 
 	public void UpdateMessages(string username)
 	{
+		messagesWindowTitle.text = username;
+		messagesWindow.SetActive(true);
+
 		// Remove old bubbles
 		foreach (Transform child in messagePanel)
 		{
@@ -98,26 +108,30 @@ public class MessagingApp : MonoBehaviour
 		// Read from TextAsset based on contact pressed
 		string textToDisplay = "";
 
-		if(username == "grunge_n_rock")
-		{
-			textToDisplay = grungeNRock.text;
-		}
-		else if(username == "Hilary")
-		{
-			textToDisplay = hilary.text;
-		}
-		else if(username == "Abiail")
-		{
-			textToDisplay = abigail.text;
-		}
-		else if(username == "Dad")
+		if(username == "Dad")
 		{
 			textToDisplay = dad.text;
 		}
-		//else if (username == "")
-		//{
-		//	textToDisplay = ;
-		//}
+		else if(username == "Dakota Fawning")
+		{
+			textToDisplay = dakota.text;
+		}
+		else if(username == "Hilary Cornerstone")
+		{
+			textToDisplay = hilary.text;
+		}
+		else if(username == "Jasmine Yahyei")
+		{
+			textToDisplay = jasmine.text;
+		}
+		else if (username == "Sam Whittleback")
+		{
+			textToDisplay = sam.text;
+		}
+		else
+		{
+			print("Error with Name");
+		}
 
 		// Split file into lines
 		string[] lines = textToDisplay.Split('\n');
@@ -149,8 +163,8 @@ public class MessagingApp : MonoBehaviour
 			}
 			else if (content[0] == "DATE")
 			{
-				// Create Date Seperator with content[1] as Date and content[2] as Time
-				string dateText = content[1] + "\n" + content[2];
+				// Create Date Seperator with content[1] as Date
+				string dateText = content[1];
 
 				GameObject newBubble = Instantiate(DatePrefab);
 				newBubble.transform.SetParent(messagePanel);
@@ -182,9 +196,14 @@ public class MessagingApp : MonoBehaviour
 				// This should not happen
 				// Something wrong with the message files
 				print("Error in data formatting.");
-				print(line + " @ " + content[0]);
 			}
 		}
+	}
+
+	public void HideMessagesWindow()
+	{
+		messagesWindow.SetActive(false);
+		messagesWindowTitle.text = "";
 	}
 
 	// Display messages (Not working in build)
