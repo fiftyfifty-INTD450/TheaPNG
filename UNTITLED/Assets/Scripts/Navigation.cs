@@ -7,6 +7,11 @@ public class Navigation : MonoBehaviour
     public GameObject QuitConfirm;
     public GameObject DiaryPass;
 
+    public void GoToTitleScreen()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
 	public void GoToInitialVideo()
 	{
 		SceneManager.LoadScene("InitialVideo");

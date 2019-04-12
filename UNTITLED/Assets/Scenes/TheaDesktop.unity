@@ -944,6 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMouseClick: {fileID: 8300000, guid: 36224cabf91ddc241954e873c19d93e9, type: 3}
+  passwordJingle: {fileID: 8300000, guid: 868e98a651cd10440ab5e6b93bdab191, type: 3}
 --- !u!4 &266691650
 Transform:
   m_ObjectHideFlags: 0
@@ -2198,7 +2199,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 266691651}
-        m_MethodName: QuitGame
+        m_MethodName: GoToTitleScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
