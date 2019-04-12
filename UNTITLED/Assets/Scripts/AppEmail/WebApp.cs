@@ -35,16 +35,18 @@ public class WebApp : MonoBehaviour
 	public Text emailCCText;
 	public Text emailDateText;
 	public Text emailContentText;
-
 	public GameObject bedditUnsubText;
 	public GameObject resume1;
 	public GameObject resume2;
 	public GameObject easterImage;
 	public GameObject laborDayImage;
 
-	public ObjectPool buttonObjectPool;
 
 	public Text inboxType;
+	public GameObject lockIcon;
+
+
+	public ObjectPool buttonObjectPool;
 
 
 	private List<TextAsset> emails = new List<TextAsset>();
