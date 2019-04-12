@@ -49,6 +49,7 @@ public class EmailLock : MonoBehaviour
             Clear();
             Close();
             ApplicationModel.emailUnlocked = true;
+            gameManager.GetComponent<SFXManager>().PlayPasswordAffirm();
             lockIcon.SetActive(false);
             //TryOpenEmail();
         }

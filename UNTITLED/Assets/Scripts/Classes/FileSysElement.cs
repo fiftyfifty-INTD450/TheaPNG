@@ -11,6 +11,7 @@ public abstract class FileSysElement : MonoBehaviour
     protected bool locked = false;
 
     public GameObject lockIcon;
+    public GameObject gameManager;
 
     public abstract void Open();
 
@@ -37,6 +38,7 @@ public abstract class FileSysElement : MonoBehaviour
         locked = false;
         lockIcon.SetActive(false);
         ApplicationModel.RegisterUnlockedFile(path);
+        gameManager.GetComponent<SFXManager>().PlayPasswordAffirm();
     }
 
     public void SetName(string name)

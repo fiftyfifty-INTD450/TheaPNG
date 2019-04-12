@@ -1302,6 +1302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 967567734}
+  gameManager: {fileID: 1197741054}
   audioPanel: {fileID: 2133807650}
 --- !u!114 &536807311
 MonoBehaviour:
@@ -2072,8 +2073,6 @@ MonoBehaviour:
   videoPanel: {fileID: 1021708414}
   textfilePanel: {fileID: 1875599443}
   audioPanel: {fileID: 2133807650}
-  audioMouseClick: {fileID: 8300000, guid: 36224cabf91ddc241954e873c19d93e9, type: 3}
-  audioSource: {fileID: 146401101}
 --- !u!1 &855350824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,6 +2873,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1197741056}
   - component: {fileID: 1197741057}
+  - component: {fileID: 1197741055}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2881,6 +2881,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1197741055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197741054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0f7b0bd92337d4a8334094a0daa916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMouseClick: {fileID: 8300000, guid: 36224cabf91ddc241954e873c19d93e9, type: 3}
+  passwordJingle: {fileID: 8300000, guid: 868e98a651cd10440ab5e6b93bdab191, type: 3}
 --- !u!4 &1197741056
 Transform:
   m_ObjectHideFlags: 0
@@ -3755,7 +3769,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1841461752}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3927,6 +3941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 1451659251}
+  gameManager: {fileID: 1197741054}
   videoPanel: {fileID: 1021708414}
 --- !u!114 &1597420990
 MonoBehaviour:
@@ -4823,7 +4838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -0.000030517578}
+  m_AnchoredPosition: {x: -0.000022888184, y: -0.000061035156}
   m_SizeDelta: {x: -124.99994, y: 296}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1887460607
@@ -5197,6 +5212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 431271441}
+  gameManager: {fileID: 1197741054}
   window: {fileID: 707987940}
 --- !u!1 &1996764881
 GameObject:
@@ -5572,6 +5588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 889201262}
+  gameManager: {fileID: 1197741054}
   textfilePanel: {fileID: 1875599443}
 --- !u!114 &2127618263
 MonoBehaviour:
@@ -5871,6 +5888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 1506205672}
+  gameManager: {fileID: 1197741054}
   imagePanel: {fileID: 561837490}
 --- !u!114 &6713970882650190690
 MonoBehaviour:

@@ -17,15 +17,11 @@ public class FileManager : MonoBehaviour
     public GameObject textfilePanel;
     public GameObject audioPanel;
 
-    public AudioClip audioMouseClick;
-    public AudioSource audioSource;
-
     private readonly string basePath = Application.streamingAssetsPath + "/Data/FileSys/";
     private string appendedPath;
 
     void Start()
     {
-        audioSource.clip = audioMouseClick;
         appendedPath = "";
         RefreshWindow();
     }
@@ -183,11 +179,6 @@ public class FileManager : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             CloseWindows();
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            audioSource.Play();
         }
     }
 

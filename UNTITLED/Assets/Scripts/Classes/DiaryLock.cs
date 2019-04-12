@@ -19,6 +19,7 @@ public class DiaryLock : MonoBehaviour
 
     public GameObject lockWindow;
     public GameObject GameManager;
+
     public GameObject lockIcon;
 
     public void Start()
@@ -65,7 +66,11 @@ public class DiaryLock : MonoBehaviour
     {
         if (Pass1Input.text.ToLower() == pass1 || ApplicationModel.Path1Complete == true)
         {
-            ApplicationModel.Path1Complete = true;
+            if (!ApplicationModel.Path1Complete)
+            {
+                ApplicationModel.Path1Complete = true;
+                GameManager.GetComponent<SFXManager>().PlayPasswordAffirm();
+            }
             Pass1Input.text = pass1;
             Pass1Input.interactable = false;
             Pass1Input.GetComponent<Image>().sprite = null;
@@ -74,7 +79,11 @@ public class DiaryLock : MonoBehaviour
         }
         if (Pass2Input.text.ToLower() == pass2 || ApplicationModel.Path2Complete == true)
         {
-            ApplicationModel.Path2Complete = true;
+            if (!ApplicationModel.Path2Complete)
+            {
+                ApplicationModel.Path2Complete = true;
+                GameManager.GetComponent<SFXManager>().PlayPasswordAffirm();
+            }
             Pass2Input.text = pass2;
             Pass2Input.interactable = false;
             Pass2Input.GetComponent<Image>().sprite = null;
@@ -83,7 +92,11 @@ public class DiaryLock : MonoBehaviour
         }
         if (Pass3Input.text.ToLower() == pass3 || ApplicationModel.Path3Complete == true)
         {
-            ApplicationModel.Path3Complete = true;
+            if (!ApplicationModel.Path3Complete)
+            {
+                ApplicationModel.Path3Complete = true;
+                GameManager.GetComponent<SFXManager>().PlayPasswordAffirm();
+            }
             Pass3Input.text = pass3;
             Pass3Input.interactable = false;
             Pass3Input.GetComponent<Image>().sprite = null;
