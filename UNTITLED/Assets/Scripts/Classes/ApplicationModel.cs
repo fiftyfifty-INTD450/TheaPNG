@@ -9,6 +9,7 @@ public class ApplicationModel
     public static bool Path3Complete = false;
     public static bool callDone = false;
     public static bool emailUnlocked = false;
+    public static bool draftsUnlocked = false;
 
     private static HashSet<string> UnlockedFiles = new HashSet<string>();
 
