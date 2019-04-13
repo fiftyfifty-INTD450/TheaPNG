@@ -7,6 +7,9 @@ public class PasswordPrompt : MonoBehaviour
 {
     private FileSysElement file;
 
+    public GameObject inputField;
+    public GameObject hintText;
+
     public void Close()
     {
         Clear();
@@ -16,43 +19,38 @@ public class PasswordPrompt : MonoBehaviour
     public void SetFile(FileSysElement file)
     {
         this.file = file;
-
-        // Set title
-        transform.GetChild(0).GetComponent<Text>().text = (file.GetComponentInChildren(typeof(Text)) as Text).text;
+        DisplayHint();
     }
 
-    public void CompareInput(string text)
+    public void CompareInput()
     {
-        Clear();
-        if (text == file.GetPasswordInfo().GetPassword())
+        if (inputField.GetComponent<InputField>().text.ToLower() == file.GetPasswordInfo().GetPassword().ToLower())
         {
             file.Unlock();
+            Clear();
             Close();
             file.Open();
         }
-        else
-        {
-            DisplayHint();
-        }
+        Clear();
     }
 
     public void Update()
     {
-        if(transform.GetChild(1).GetComponent<InputField>().text != "" && Input.GetKey(KeyCode.Return)) // transform.GetChild(1).GetComponent<InputField>().isFocused
+        if(inputField.GetComponent<InputField>().text != "" && Input.GetKey(KeyCode.Return))
         {
-            CompareInput(transform.GetChild(1).GetComponent<InputField>().text);
+            CompareInput();
         }
     }
 
-    private void Clear()
+    private void Clear(bool clearHint = false)
     {
-        transform.GetChild(1).GetComponent<InputField>().text = "";
-        transform.GetChild(2).GetComponent<Text>().text = "";
+        inputField.GetComponent<InputField>().text = "";
+        if (clearHint) hintText.GetComponent<Text>().text = "";
     }
 
     public void DisplayHint()
     {
         string hint = file.GetPasswordInfo().GetHint();
-        transform.GetChild(2).GetComponent<Text>().text = "Hint: " + hint + "\n(" + file.GetPasswordInfo().GetPassword().Length + " characters long)";
+        hintText.GetComponent<Text>().text = "Hint: " + hint + "\n(" + file.GetPasswordInfo().GetPassword().Length + " characters long)";
     }
 }

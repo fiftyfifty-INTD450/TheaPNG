@@ -17,15 +17,11 @@ public class FileManager : MonoBehaviour
     public GameObject textfilePanel;
     public GameObject audioPanel;
 
-    public AudioClip audioMouseClick;
-    public AudioSource audioSource;
-
-    private readonly string basePath = Application.streamingAssetsPath + "/Data/FileSys/Documents";
+    private readonly string basePath = Application.streamingAssetsPath + "/Data/FileSys/";
     private string appendedPath;
 
     void Start()
     {
-        audioSource.clip = audioMouseClick;
         appendedPath = "";
         RefreshWindow();
     }
@@ -58,10 +54,15 @@ public class FileManager : MonoBehaviour
         DirectoryInfo[] dirs = d.GetDirectories();
         foreach (DirectoryInfo dir in dirs)
         {
+#if !UNITY_EDITOR
+            if (dir.Name.StartsWith("_")) continue;
+#endif
+
             GameObject element = Instantiate(fseFolder) as GameObject;
             element.SetActive(true);
 
             element.GetComponent<FSEFolder>().SetName(dir.Name);
+            element.GetComponent<FSEFolder>().SetPath(dir.FullName);
 
             element.transform.SetParent(fseFolder.transform.parent, false);
 
@@ -82,13 +83,13 @@ public class FileManager : MonoBehaviour
         foreach (FileInfo file in files)
         {
             GameObject element = null;
-            if (file.Name.EndsWith(".png") || file.Name.EndsWith(".jpg"))
+            if (file.Name.EndsWith(".png") || file.Name.ToLower().EndsWith(".jpg"))
             {
                 element = Instantiate(fseImage) as GameObject;
                 element.SetActive(true);
 
                 element.GetComponent<FSEImage>().SetName(file.Name);
-                element.GetComponent<FSEImage>().SetPath(basePath+appendedPath+"/"+file.Name);
+                element.GetComponent<FSEImage>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseImage.transform.parent, false);
 
@@ -107,7 +108,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSETextfile>().SetName(file.Name);
-                element.GetComponent<FSETextfile>().SetPath(basePath + appendedPath + "/" + file.Name);
+                element.GetComponent<FSETextfile>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseTextfile.transform.parent, false);
 
@@ -126,7 +127,7 @@ public class FileManager : MonoBehaviour
                 element.SetActive(true);
 
                 element.GetComponent<FSEVideo>().SetName(file.Name);
-                element.GetComponent<FSEVideo>().SetPath(basePath + appendedPath + "/" + file.Name);
+                element.GetComponent<FSEVideo>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseVideo.transform.parent, false);
 
@@ -139,13 +140,13 @@ public class FileManager : MonoBehaviour
                     element.GetComponent<FSEVideo>().Lock();
                 }
             }
-            else if (file.Name.EndsWith(".wav"))
+            else if (file.Name.EndsWith(".wav")) //  || file.Name.EndsWith(".mp3"))
             {
                 element = Instantiate(fseAudio) as GameObject;
                 element.SetActive(true);
 
                 element.GetComponent<FSEAudio>().SetName(file.Name);
-                element.GetComponent<FSEAudio>().SetPath(basePath + appendedPath + "/" + file.Name);
+                element.GetComponent<FSEAudio>().SetPath(basePath + ApplicationModel.GetFileSysHead() + appendedPath + "/" + file.Name);
 
                 element.transform.SetParent(fseAudio.transform.parent, false);
 
@@ -165,19 +166,19 @@ public class FileManager : MonoBehaviour
         }
     }
 
+    public void CloseWindows()
+    {
+        imagePanel.SetActive(false);
+        videoPanel.SetActive(false);
+        textfilePanel.SetActive(false);
+        audioPanel.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
-            imagePanel.SetActive(false);
-            videoPanel.SetActive(false);
-            textfilePanel.SetActive(false);
-            audioPanel.SetActive(false);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            audioSource.Play();
+            CloseWindows();
         }
     }
 
@@ -195,7 +196,7 @@ public class FileManager : MonoBehaviour
 
         //Debug.Log("Streaming Assets Path: "+Application.streamingAssetsPath);
 
-        DirectoryInfo d = new DirectoryInfo(basePath + appendedPath);
+        DirectoryInfo d = new DirectoryInfo(basePath + ApplicationModel.GetFileSysHead() + appendedPath);
 
         RefreshFolders(d);
         RefreshFiles(d);

@@ -11,9 +11,8 @@ public class FSETextfile : FileSysElement
         if (locked)
         {
             // Enable password prompt
-            GameObject pp = transform.parent.parent.parent.parent.GetChild(7).gameObject;
-            pp.SetActive(true);
-            pp.GetComponent<PasswordPrompt>().SetFile(this);
+            passwordWindow.SetActive(true);
+            passwordWindow.GetComponent<PasswordPrompt>().SetFile(this);
         }
         else
         {

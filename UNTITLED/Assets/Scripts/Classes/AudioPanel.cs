@@ -18,9 +18,25 @@ public class AudioPanel : MonoBehaviour
         StartCoroutine(PlayAudio(path));
     }
 
+    private AudioType GetAudioType(string path)
+    {
+        if (path.EndsWith(".wav"))
+        {
+            return AudioType.WAV;
+        }
+        else if (path.EndsWith(".mp3"))
+        {
+            return AudioType.MPEG;
+        }
+        else
+        {
+            throw new System.ArgumentException("Attempt to read unsupported filetype at: " + path);
+        }
+    }
+
     private IEnumerator PlayAudio(string path)
     {
-        using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(path, AudioType.WAV))
+        using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(path, GetAudioType(path)))
         {
             yield return www.SendWebRequest();
 

@@ -3,6 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
 {
+    public GameObject StartMenu;
+    public GameObject QuitConfirm;
+    public GameObject DiaryPass;
+
+    public void GoToTitleScreen()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
 	public void GoToInitialVideo()
 	{
 		SceneManager.LoadScene("InitialVideo");
@@ -20,16 +29,64 @@ public class Navigation : MonoBehaviour
 
     public void GoToFileExplorer()
     {
+        ApplicationModel.SetFileSysHead("Documents");
         SceneManager.LoadScene("FileExplorer");
     }
 
-	public void GoToInternet()
+    public void GoToDiary()
+    {
+        ApplicationModel.SetFileSysHead("Diary");
+        SceneManager.LoadScene("FileExplorer");
+    }
+
+	public void GoToEmail()
 	{
-		SceneManager.LoadScene("WebApp");
+		SceneManager.LoadScene("AppEmail");
 	}
 
 	public void GoToMessaging()
 	{
-		SceneManager.LoadScene("ChatApp");
+		SceneManager.LoadScene("AppMessaging");
 	}
+
+    public void ToggleStartMenu()
+    {
+        if (StartMenu.activeSelf)
+        {
+            StartMenu.SetActive(false);
+        }
+        else
+        {
+            StartMenu.SetActive(true);
+        }
+    }
+
+    public void ShowQuitConfirm()
+    {
+        QuitConfirm.SetActive(true);
+    }
+
+    public void HideQuitConfirm()
+    {
+        QuitConfirm.SetActive(false);
+    }
+
+    public void ShowDiaryLockWindow()
+    {
+        DiaryPass.SetActive(true);
+    }
+
+    public void HideDiaryLockWindow()
+    {
+        DiaryPass.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
