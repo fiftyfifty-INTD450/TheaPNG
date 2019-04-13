@@ -67,7 +67,7 @@ public class LoginScreen : MonoBehaviour
 
 	private IEnumerator LoginTimer()
 	{
-		yield return new WaitForSeconds(1.0f);
+		yield return new WaitForSeconds(2.0f);
 
 		audioPlayer.clip = loginSound;
 		audioPlayer.Play();

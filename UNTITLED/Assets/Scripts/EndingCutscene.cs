@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class EndingCutscene : MonoBehaviour
 {
 	public GameObject everything;
+	public GameObject warningShadeForTaskbar;
+	public GameObject taskbar;
 	public GameObject sfxManager;
 
 	public GameObject warning;
@@ -34,6 +36,7 @@ public class EndingCutscene : MonoBehaviour
 	IEnumerator DeleteClip()
 	{
 		everything.SetActive(false);
+		warningShadeForTaskbar.SetActive(false);
 		sfxManager.SetActive(false);
 
 		Cursor.lockState = CursorLockMode.Locked;
@@ -49,6 +52,7 @@ public class EndingCutscene : MonoBehaviour
 		videoPlayer.Stop();
 
 		everything.SetActive(true);
+		warningShadeForTaskbar.SetActive(true);
 		sfxManager.SetActive(true);
 
 		Cursor.lockState = CursorLockMode.None;
@@ -126,6 +130,8 @@ public class EndingCutscene : MonoBehaviour
 
 		yield return new WaitForSeconds(voDuration + 1.0f);
 
+		taskbar.SetActive(false);
+		warningShadeForTaskbar.SetActive(false);
 		fadeBlack.SetActive(true);
 
 		audioPlayer.Stop();
