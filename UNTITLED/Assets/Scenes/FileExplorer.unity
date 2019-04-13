@@ -1710,6 +1710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 967567734}
   gameManager: {fileID: 1197741054}
+  passwordWindow: {fileID: 593598009}
   audioPanel: {fileID: 2133807650}
 --- !u!114 &536807311
 MonoBehaviour:
@@ -3606,7 +3607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0.000061035156}
   m_SizeDelta: {x: 0.5085449, y: 0.38134766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041899368
@@ -4847,7 +4848,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 498425570}
   m_HandleRect: {fileID: 498425569}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5099,7 +5100,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1841461753}
   m_HandleRect: {fileID: 1841461752}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5273,6 +5274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 1451659251}
   gameManager: {fileID: 1197741054}
+  passwordWindow: {fileID: 593598009}
   videoPanel: {fileID: 1021708414}
 --- !u!114 &1597420990
 MonoBehaviour:
@@ -6169,7 +6171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 0.000091552734}
+  m_AnchoredPosition: {x: -0.00008392334, y: -0.000091552734}
   m_SizeDelta: {x: -124.99994, y: 296}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1887460607
@@ -6616,6 +6618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 431271441}
   gameManager: {fileID: 1197741054}
+  passwordWindow: {fileID: 593598009}
   window: {fileID: 707987940}
 --- !u!1 &1996764881
 GameObject:
@@ -7073,6 +7076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 889201262}
   gameManager: {fileID: 1197741054}
+  passwordWindow: {fileID: 593598009}
   textfilePanel: {fileID: 1875599443}
 --- !u!114 &2127618263
 MonoBehaviour:
@@ -7373,6 +7377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockIcon: {fileID: 1506205672}
   gameManager: {fileID: 1197741054}
+  passwordWindow: {fileID: 593598009}
   imagePanel: {fileID: 561837490}
 --- !u!114 &6713970882650190690
 MonoBehaviour:

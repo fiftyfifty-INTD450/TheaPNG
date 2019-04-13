@@ -12,6 +12,7 @@ public abstract class FileSysElement : MonoBehaviour
 
     public GameObject lockIcon;
     public GameObject gameManager;
+    public GameObject passwordWindow;
 
     public abstract void Open();
 
