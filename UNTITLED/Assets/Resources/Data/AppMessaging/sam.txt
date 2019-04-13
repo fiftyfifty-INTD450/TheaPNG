@@ -67,8 +67,7 @@ INBOUND__thea are you there?
 INBOUND__you better reply to me, thea
 INBOUND__im here, worried about refilling your prescriptions, and you dont even have the respect to reply to me in time
 INBOUND__i need to get it in in the next few minutes
-OUTBOUND__im so so sorry!! That’s my bad 
-DATE__August 24, 2003
+OUTBOUND__im so so sorry!! That’s my bad
 DATE__August 24, 2003
 INBOUND_DELETED
 INBOUND_DELETED
