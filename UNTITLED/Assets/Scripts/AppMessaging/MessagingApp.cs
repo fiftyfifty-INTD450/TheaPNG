@@ -137,8 +137,10 @@ public class MessagingApp : MonoBehaviour
 		string[] lines = textToDisplay.Split('\n');
 
 		// Pharse each line
+		int lineNum = 0;
 		foreach(string line in lines)
 		{
+			++lineNum;
 			// Split each line at "__"
 			string[] content = line.Split(new string[] { "__" }, StringSplitOptions.None);
 
@@ -195,6 +197,7 @@ public class MessagingApp : MonoBehaviour
 			{
 				// This should not happen
 				// Something wrong with the message files
+				print(lineNum);
 				print("Error in data formatting.");
 			}
 
